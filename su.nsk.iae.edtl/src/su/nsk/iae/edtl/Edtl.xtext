@@ -1,0 +1,161 @@
+//grammar su.nsk.iae.edtl.Edtl with org.eclipse.xtext.common.Terminals
+grammar su.nsk.iae.edtl.Edtl hidden(WS, ML_COMMENT, SL_COMMENT)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate edtl "http://www.nsk.su/iae/edtl/Edtl"
+
+Model:
+{w} (elements+=Statement)*;
+
+Statement:
+	DeclVarInput | DeclVarOutput | Abbr | Macros | Requirement;
+
+VariableTypeName returns ecore::EString:
+	'BOOL' | 'INT';
+
+DeclVarInput:
+	{DeclVarInput}
+	'VAR_INPUT' (value+=VarDeclaration ';')* 'END_VAR';
+
+DeclVarOutput:
+	{DeclVarOutput}
+	'VAR_OUTPUT' (value+=VarDeclaration ';')* 'END_VAR';
+
+VarDeclaration:
+	var=Variable ':' type=VariableTypeName;
+
+Abbr:
+	'ABBR' name=ID
+		(value+=Expression)*
+	'END_ABBR';
+
+Macros:
+	'MACROS' name=ID '(' (args=VarList)? ')'
+		(value+=Expression)*
+	'END_MACROS';
+
+VarList:
+	vars+=Variable (',' vars+=Variable)*;
+	
+Requirement:
+	'REQ' name=ID
+		(
+			attribute+=Attribute  DECL_SYMB  value+=Expression ';'
+		)*
+	'END_REQ';
+ 	
+Attribute returns ecore::EString:
+ 	'TRIGGER' | 'INV' | 'FINAL' | 'DELAY' | 'REACTION' | 'RELEASE'; 
+
+//Requirement:
+//	'REQ' '<'reqName=ID'>' 
+//		attributes=Attributes
+//	'END_REQ';
+// 	
+//Attributes returns ecore::EString:
+// 	'TRIGGER' DECL_SYMB trig=Expression
+// 	'INV' DECL_SYMB inv=Expression
+// 	'FINAL' DECL_SYMB fin=Expression
+// 	'DELAY' DECL_SYMB del=Expression
+// 	'REACTION' DECL_SYMB react=Expression
+// 	'RELEASE' DECL_SYMB rel=Expression; 
+
+terminal DECL_SYMB:
+	':=';
+	
+Variable:
+	name=ID;
+	
+Expression:
+	XorExpression ({Expression.left=current} orOp=OR_OPERATOR right=XorExpression)*;
+
+terminal OR_OPERATOR:
+	'||' | 'OR';
+
+XorExpression:
+	AndExpression ({XorExpression.left=current} XOR_OPERATOR right=AndExpression)*;
+
+XOR_OPERATOR:
+	'XOR';
+	
+AndExpression:
+	CompExpression ({AndExpression.left=current} andOp=AND_OPERATOR right=CompExpression)*;
+
+AND_OPERATOR:
+	'&&' | 'AND';
+	
+CompExpression:
+	EquExpression ({CompExpression.left=current} compOp=CompOperator right=AndExpression)*;
+
+EquExpression:
+	UnExpression ({EquExpression.left=current} equOp=EquOperator right=UnExpression)*;
+	
+enum EquOperator:
+	EQUAL='==' | NOT_EQUAL='<>';
+
+enum CompOperator:
+	LESS='<' | GREATER='>' | LESS_EQU='<=' | GREATER_EQU='>=';
+
+UnOperator returns ecore::EString:
+	NotOperator | 'FE' | 'RE' | 'HIGH' | 'LOW' ;
+
+NotOperator:
+	'NOT' | '!';
+	
+UnExpression:
+	PrimaryExpression | unOp=UnOperator right=PrimaryExpression;
+
+TauExpression:
+	'TAU' '(' (time=TimeLiteral) ')'; // | time=Abbr...
+
+TimeLiteral:
+	 TIME_PREF_LITERAL interval=INTERVAL;
+
+TIME_PREF_LITERAL returns ecore::EString:
+	'#T';
+
+terminal INTERVAL returns ecore::EString:
+	(INTEGER 'd')? (INTEGER 'h')? (INTEGER 'm')? (INTEGER 's')? (INTEGER 'ms')?;
+
+PrimaryExpression:
+	const=INTEGER | var=[CrossVarAbbr] | macros=[Macros]'(' (args=ParamAssignmentElements)? ')'| tau=TauExpression | '(' nestExpr=Expression ')';
+	
+ParamAssignmentElements:
+	elements+=[Variable] (',' elements+=[Variable])*;
+
+//ParamAssignment:
+//	variable=[Variable] assig=AssignmentType value=Expression;
+	
+CrossVarAbbr:
+	Variable | Abbr;
+
+terminal INTEGER returns ecore::EString:
+	DIGIT+;
+
+terminal fragment LETTER:
+	'A'..'Z' | 'a'..'z' | '_';
+
+terminal fragment BIT:
+	'0' | '1';
+	
+terminal fragment OCTAL_DIGIT:
+	'0'..'7';
+
+terminal fragment DIGIT:
+	'0'..'9';
+
+terminal fragment HEX_DIGIT:
+	DIGIT | 'A'..'F';
+
+terminal ID returns ecore::EString:
+	LETTER (LETTER | DIGIT)*;
+
+terminal ML_COMMENT:
+    '/*' -> '*/' | '(*' -> '*)';
+ 
+terminal SL_COMMENT:
+    '//' !('\n'|'\r')* ('\r'? '\n')?;
+ 
+terminal WS:
+    (' '|'\t'|'\r'|'\n')+;
