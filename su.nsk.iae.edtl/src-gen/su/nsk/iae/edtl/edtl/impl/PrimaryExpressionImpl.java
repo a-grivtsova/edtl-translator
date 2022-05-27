@@ -28,10 +28,10 @@ import su.nsk.iae.edtl.edtl.TauExpression;
  * </p>
  * <ul>
  *   <li>{@link su.nsk.iae.edtl.edtl.impl.PrimaryExpressionImpl#getConst <em>Const</em>}</li>
- *   <li>{@link su.nsk.iae.edtl.edtl.impl.PrimaryExpressionImpl#getVar <em>Var</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.impl.PrimaryExpressionImpl#getTau <em>Tau</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.impl.PrimaryExpressionImpl#getV <em>V</em>}</li>
  *   <li>{@link su.nsk.iae.edtl.edtl.impl.PrimaryExpressionImpl#getMacros <em>Macros</em>}</li>
  *   <li>{@link su.nsk.iae.edtl.edtl.impl.PrimaryExpressionImpl#getArgs <em>Args</em>}</li>
- *   <li>{@link su.nsk.iae.edtl.edtl.impl.PrimaryExpressionImpl#getTau <em>Tau</em>}</li>
  *   <li>{@link su.nsk.iae.edtl.edtl.impl.PrimaryExpressionImpl#getNestExpr <em>Nest Expr</em>}</li>
  * </ul>
  *
@@ -60,14 +60,24 @@ public class PrimaryExpressionImpl extends UnExpressionImpl implements PrimaryEx
   protected String const_ = CONST_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getVar() <em>Var</em>}' reference.
+   * The cached value of the '{@link #getTau() <em>Tau</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVar()
+   * @see #getTau()
    * @generated
    * @ordered
    */
-  protected CrossVarAbbr var;
+  protected TauExpression tau;
+
+  /**
+   * The cached value of the '{@link #getV() <em>V</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getV()
+   * @generated
+   * @ordered
+   */
+  protected CrossVarAbbr v;
 
   /**
    * The cached value of the '{@link #getMacros() <em>Macros</em>}' reference.
@@ -88,16 +98,6 @@ public class PrimaryExpressionImpl extends UnExpressionImpl implements PrimaryEx
    * @ordered
    */
   protected ParamAssignmentElements args;
-
-  /**
-   * The cached value of the '{@link #getTau() <em>Tau</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getTau()
-   * @generated
-   * @ordered
-   */
-  protected TauExpression tau;
 
   /**
    * The cached value of the '{@link #getNestExpr() <em>Nest Expr</em>}' containment reference.
@@ -161,19 +161,9 @@ public class PrimaryExpressionImpl extends UnExpressionImpl implements PrimaryEx
    * @generated
    */
   @Override
-  public CrossVarAbbr getVar()
+  public TauExpression getTau()
   {
-    if (var != null && var.eIsProxy())
-    {
-      InternalEObject oldVar = (InternalEObject)var;
-      var = (CrossVarAbbr)eResolveProxy(oldVar);
-      if (var != oldVar)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EdtlPackage.PRIMARY_EXPRESSION__VAR, oldVar, var));
-      }
-    }
-    return var;
+    return tau;
   }
 
   /**
@@ -181,9 +171,16 @@ public class PrimaryExpressionImpl extends UnExpressionImpl implements PrimaryEx
    * <!-- end-user-doc -->
    * @generated
    */
-  public CrossVarAbbr basicGetVar()
+  public NotificationChain basicSetTau(TauExpression newTau, NotificationChain msgs)
   {
-    return var;
+    TauExpression oldTau = tau;
+    tau = newTau;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EdtlPackage.PRIMARY_EXPRESSION__TAU, oldTau, newTau);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -192,12 +189,65 @@ public class PrimaryExpressionImpl extends UnExpressionImpl implements PrimaryEx
    * @generated
    */
   @Override
-  public void setVar(CrossVarAbbr newVar)
+  public void setTau(TauExpression newTau)
   {
-    CrossVarAbbr oldVar = var;
-    var = newVar;
+    if (newTau != tau)
+    {
+      NotificationChain msgs = null;
+      if (tau != null)
+        msgs = ((InternalEObject)tau).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.PRIMARY_EXPRESSION__TAU, null, msgs);
+      if (newTau != null)
+        msgs = ((InternalEObject)newTau).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.PRIMARY_EXPRESSION__TAU, null, msgs);
+      msgs = basicSetTau(newTau, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EdtlPackage.PRIMARY_EXPRESSION__TAU, newTau, newTau));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public CrossVarAbbr getV()
+  {
+    if (v != null && v.eIsProxy())
+    {
+      InternalEObject oldV = (InternalEObject)v;
+      v = (CrossVarAbbr)eResolveProxy(oldV);
+      if (v != oldV)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EdtlPackage.PRIMARY_EXPRESSION__V, oldV, v));
+      }
+    }
+    return v;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CrossVarAbbr basicGetV()
+  {
+    return v;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setV(CrossVarAbbr newV)
+  {
+    CrossVarAbbr oldV = v;
+    v = newV;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EdtlPackage.PRIMARY_EXPRESSION__VAR, oldVar, var));
+      eNotify(new ENotificationImpl(this, Notification.SET, EdtlPackage.PRIMARY_EXPRESSION__V, oldV, v));
   }
 
   /**
@@ -301,56 +351,6 @@ public class PrimaryExpressionImpl extends UnExpressionImpl implements PrimaryEx
    * @generated
    */
   @Override
-  public TauExpression getTau()
-  {
-    return tau;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetTau(TauExpression newTau, NotificationChain msgs)
-  {
-    TauExpression oldTau = tau;
-    tau = newTau;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EdtlPackage.PRIMARY_EXPRESSION__TAU, oldTau, newTau);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setTau(TauExpression newTau)
-  {
-    if (newTau != tau)
-    {
-      NotificationChain msgs = null;
-      if (tau != null)
-        msgs = ((InternalEObject)tau).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.PRIMARY_EXPRESSION__TAU, null, msgs);
-      if (newTau != null)
-        msgs = ((InternalEObject)newTau).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.PRIMARY_EXPRESSION__TAU, null, msgs);
-      msgs = basicSetTau(newTau, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EdtlPackage.PRIMARY_EXPRESSION__TAU, newTau, newTau));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Expression getNestExpr()
   {
     return nestExpr;
@@ -405,10 +405,10 @@ public class PrimaryExpressionImpl extends UnExpressionImpl implements PrimaryEx
   {
     switch (featureID)
     {
-      case EdtlPackage.PRIMARY_EXPRESSION__ARGS:
-        return basicSetArgs(null, msgs);
       case EdtlPackage.PRIMARY_EXPRESSION__TAU:
         return basicSetTau(null, msgs);
+      case EdtlPackage.PRIMARY_EXPRESSION__ARGS:
+        return basicSetArgs(null, msgs);
       case EdtlPackage.PRIMARY_EXPRESSION__NEST_EXPR:
         return basicSetNestExpr(null, msgs);
     }
@@ -427,16 +427,16 @@ public class PrimaryExpressionImpl extends UnExpressionImpl implements PrimaryEx
     {
       case EdtlPackage.PRIMARY_EXPRESSION__CONST:
         return getConst();
-      case EdtlPackage.PRIMARY_EXPRESSION__VAR:
-        if (resolve) return getVar();
-        return basicGetVar();
+      case EdtlPackage.PRIMARY_EXPRESSION__TAU:
+        return getTau();
+      case EdtlPackage.PRIMARY_EXPRESSION__V:
+        if (resolve) return getV();
+        return basicGetV();
       case EdtlPackage.PRIMARY_EXPRESSION__MACROS:
         if (resolve) return getMacros();
         return basicGetMacros();
       case EdtlPackage.PRIMARY_EXPRESSION__ARGS:
         return getArgs();
-      case EdtlPackage.PRIMARY_EXPRESSION__TAU:
-        return getTau();
       case EdtlPackage.PRIMARY_EXPRESSION__NEST_EXPR:
         return getNestExpr();
     }
@@ -456,17 +456,17 @@ public class PrimaryExpressionImpl extends UnExpressionImpl implements PrimaryEx
       case EdtlPackage.PRIMARY_EXPRESSION__CONST:
         setConst((String)newValue);
         return;
-      case EdtlPackage.PRIMARY_EXPRESSION__VAR:
-        setVar((CrossVarAbbr)newValue);
+      case EdtlPackage.PRIMARY_EXPRESSION__TAU:
+        setTau((TauExpression)newValue);
+        return;
+      case EdtlPackage.PRIMARY_EXPRESSION__V:
+        setV((CrossVarAbbr)newValue);
         return;
       case EdtlPackage.PRIMARY_EXPRESSION__MACROS:
         setMacros((Macros)newValue);
         return;
       case EdtlPackage.PRIMARY_EXPRESSION__ARGS:
         setArgs((ParamAssignmentElements)newValue);
-        return;
-      case EdtlPackage.PRIMARY_EXPRESSION__TAU:
-        setTau((TauExpression)newValue);
         return;
       case EdtlPackage.PRIMARY_EXPRESSION__NEST_EXPR:
         setNestExpr((Expression)newValue);
@@ -488,17 +488,17 @@ public class PrimaryExpressionImpl extends UnExpressionImpl implements PrimaryEx
       case EdtlPackage.PRIMARY_EXPRESSION__CONST:
         setConst(CONST_EDEFAULT);
         return;
-      case EdtlPackage.PRIMARY_EXPRESSION__VAR:
-        setVar((CrossVarAbbr)null);
+      case EdtlPackage.PRIMARY_EXPRESSION__TAU:
+        setTau((TauExpression)null);
+        return;
+      case EdtlPackage.PRIMARY_EXPRESSION__V:
+        setV((CrossVarAbbr)null);
         return;
       case EdtlPackage.PRIMARY_EXPRESSION__MACROS:
         setMacros((Macros)null);
         return;
       case EdtlPackage.PRIMARY_EXPRESSION__ARGS:
         setArgs((ParamAssignmentElements)null);
-        return;
-      case EdtlPackage.PRIMARY_EXPRESSION__TAU:
-        setTau((TauExpression)null);
         return;
       case EdtlPackage.PRIMARY_EXPRESSION__NEST_EXPR:
         setNestExpr((Expression)null);
@@ -519,14 +519,14 @@ public class PrimaryExpressionImpl extends UnExpressionImpl implements PrimaryEx
     {
       case EdtlPackage.PRIMARY_EXPRESSION__CONST:
         return CONST_EDEFAULT == null ? const_ != null : !CONST_EDEFAULT.equals(const_);
-      case EdtlPackage.PRIMARY_EXPRESSION__VAR:
-        return var != null;
+      case EdtlPackage.PRIMARY_EXPRESSION__TAU:
+        return tau != null;
+      case EdtlPackage.PRIMARY_EXPRESSION__V:
+        return v != null;
       case EdtlPackage.PRIMARY_EXPRESSION__MACROS:
         return macros != null;
       case EdtlPackage.PRIMARY_EXPRESSION__ARGS:
         return args != null;
-      case EdtlPackage.PRIMARY_EXPRESSION__TAU:
-        return tau != null;
       case EdtlPackage.PRIMARY_EXPRESSION__NEST_EXPR:
         return nestExpr != null;
     }

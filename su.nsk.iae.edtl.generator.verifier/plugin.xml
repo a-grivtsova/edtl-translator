@@ -1,0 +1,9 @@
+<plugin>
+	<extension
+       id="su.nsk.iae.edtl.generator.verifier"
+       name="su.nsk.iae.edtl.generator.verifier"
+       point="su.nsk.iae.edtl.edtl_extension">
+		<client
+			class="su.nsk.iae.edtl.generator.verifier.common.VerifierFileGenerator"></client>
+	</extension>
+</plugin>

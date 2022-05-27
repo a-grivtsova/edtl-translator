@@ -81,11 +81,6 @@ public class EdtlAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseStatement(Statement object)
-      {
-        return createStatementAdapter();
-      }
-      @Override
       public Adapter caseDeclVarInput(DeclVarInput object)
       {
         return createDeclVarInputAdapter();
@@ -181,11 +176,6 @@ public class EdtlAdapterFactory extends AdapterFactoryImpl
         return createCrossVarAbbrAdapter();
       }
       @Override
-      public Adapter casew(w object)
-      {
-        return createwAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -218,21 +208,6 @@ public class EdtlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link su.nsk.iae.edtl.edtl.Statement <em>Statement</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see su.nsk.iae.edtl.edtl.Statement
-   * @generated
-   */
-  public Adapter createStatementAdapter()
   {
     return null;
   }
@@ -518,21 +493,6 @@ public class EdtlAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCrossVarAbbrAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link su.nsk.iae.edtl.edtl.w <em>w</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see su.nsk.iae.edtl.edtl.w
-   * @generated
-   */
-  public Adapter createwAdapter()
   {
     return null;
   }

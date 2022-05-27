@@ -14,10 +14,10 @@ package su.nsk.iae.edtl.edtl;
  * </p>
  * <ul>
  *   <li>{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getConst <em>Const</em>}</li>
- *   <li>{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getVar <em>Var</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getTau <em>Tau</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getV <em>V</em>}</li>
  *   <li>{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getMacros <em>Macros</em>}</li>
  *   <li>{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getArgs <em>Args</em>}</li>
- *   <li>{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getTau <em>Tau</em>}</li>
  *   <li>{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getNestExpr <em>Nest Expr</em>}</li>
  * </ul>
  *
@@ -50,26 +50,48 @@ public interface PrimaryExpression extends UnExpression
   void setConst(String value);
 
   /**
-   * Returns the value of the '<em><b>Var</b></em>' reference.
+   * Returns the value of the '<em><b>Tau</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var</em>' reference.
-   * @see #setVar(CrossVarAbbr)
-   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getPrimaryExpression_Var()
+   * @return the value of the '<em>Tau</em>' containment reference.
+   * @see #setTau(TauExpression)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getPrimaryExpression_Tau()
+   * @model containment="true"
+   * @generated
+   */
+  TauExpression getTau();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getTau <em>Tau</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Tau</em>' containment reference.
+   * @see #getTau()
+   * @generated
+   */
+  void setTau(TauExpression value);
+
+  /**
+   * Returns the value of the '<em><b>V</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>V</em>' reference.
+   * @see #setV(CrossVarAbbr)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getPrimaryExpression_V()
    * @model
    * @generated
    */
-  CrossVarAbbr getVar();
+  CrossVarAbbr getV();
 
   /**
-   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getVar <em>Var</em>}' reference.
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getV <em>V</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var</em>' reference.
-   * @see #getVar()
+   * @param value the new value of the '<em>V</em>' reference.
+   * @see #getV()
    * @generated
    */
-  void setVar(CrossVarAbbr value);
+  void setV(CrossVarAbbr value);
 
   /**
    * Returns the value of the '<em><b>Macros</b></em>' reference.
@@ -114,28 +136,6 @@ public interface PrimaryExpression extends UnExpression
    * @generated
    */
   void setArgs(ParamAssignmentElements value);
-
-  /**
-   * Returns the value of the '<em><b>Tau</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Tau</em>' containment reference.
-   * @see #setTau(TauExpression)
-   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getPrimaryExpression_Tau()
-   * @model containment="true"
-   * @generated
-   */
-  TauExpression getTau();
-
-  /**
-   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getTau <em>Tau</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Tau</em>' containment reference.
-   * @see #getTau()
-   * @generated
-   */
-  void setTau(TauExpression value);
 
   /**
    * Returns the value of the '<em><b>Nest Expr</b></em>' containment reference.

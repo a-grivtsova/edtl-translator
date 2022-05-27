@@ -3,7 +3,6 @@
  */
 package su.nsk.iae.edtl.edtl;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,25 +13,35 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link su.nsk.iae.edtl.edtl.Abbr#getValue <em>Value</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Abbr#getExpr <em>Expr</em>}</li>
  * </ul>
  *
  * @see su.nsk.iae.edtl.edtl.EdtlPackage#getAbbr()
  * @model
  * @generated
  */
-public interface Abbr extends Statement, CrossVarAbbr
+public interface Abbr extends CrossVarAbbr
 {
   /**
-   * Returns the value of the '<em><b>Value</b></em>' containment reference list.
-   * The list contents are of type {@link su.nsk.iae.edtl.edtl.Expression}.
+   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' containment reference list.
-   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getAbbr_Value()
+   * @return the value of the '<em>Expr</em>' containment reference.
+   * @see #setExpr(Expression)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getAbbr_Expr()
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getValue();
+  Expression getExpr();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Abbr#getExpr <em>Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Expr</em>' containment reference.
+   * @see #getExpr()
+   * @generated
+   */
+  void setExpr(Expression value);
 
 } // Abbr

@@ -27,7 +27,7 @@ public interface ParamAssignmentElements extends EObject
 {
   /**
    * Returns the value of the '<em><b>Elements</b></em>' reference list.
-   * The list contents are of type {@link su.nsk.iae.edtl.edtl.Variable}.
+   * The list contents are of type {@link su.nsk.iae.edtl.edtl.CrossVarAbbr}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Elements</em>' reference list.
@@ -35,6 +35,6 @@ public interface ParamAssignmentElements extends EObject
    * @model
    * @generated
    */
-  EList<Variable> getElements();
+  EList<CrossVarAbbr> getElements();
 
 } // ParamAssignmentElements

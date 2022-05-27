@@ -13,9 +13,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
+import su.nsk.iae.edtl.edtl.CrossVarAbbr;
 import su.nsk.iae.edtl.edtl.EdtlPackage;
 import su.nsk.iae.edtl.edtl.ParamAssignmentElements;
-import su.nsk.iae.edtl.edtl.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +40,7 @@ public class ParamAssignmentElementsImpl extends MinimalEObjectImpl.Container im
    * @generated
    * @ordered
    */
-  protected EList<Variable> elements;
+  protected EList<CrossVarAbbr> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,11 +69,11 @@ public class ParamAssignmentElementsImpl extends MinimalEObjectImpl.Container im
    * @generated
    */
   @Override
-  public EList<Variable> getElements()
+  public EList<CrossVarAbbr> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectResolvingEList<Variable>(Variable.class, this, EdtlPackage.PARAM_ASSIGNMENT_ELEMENTS__ELEMENTS);
+      elements = new EObjectResolvingEList<CrossVarAbbr>(CrossVarAbbr.class, this, EdtlPackage.PARAM_ASSIGNMENT_ELEMENTS__ELEMENTS);
     }
     return elements;
   }
@@ -107,7 +107,7 @@ public class ParamAssignmentElementsImpl extends MinimalEObjectImpl.Container im
     {
       case EdtlPackage.PARAM_ASSIGNMENT_ELEMENTS__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends Variable>)newValue);
+        getElements().addAll((Collection<? extends CrossVarAbbr>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

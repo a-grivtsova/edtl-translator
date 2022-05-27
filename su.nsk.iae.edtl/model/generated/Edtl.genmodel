@@ -16,33 +16,51 @@
       <genEnumLiterals ecoreEnumLiteral="Edtl.ecore#//CompOperator/LESS_EQU"/>
       <genEnumLiterals ecoreEnumLiteral="Edtl.ecore#//CompOperator/GREATER_EQU"/>
     </genEnums>
-    <genClasses ecoreClass="Edtl.ecore#//Model"/>
-    <genClasses ecoreClass="Edtl.ecore#//Statement"/>
+    <genClasses ecoreClass="Edtl.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Model/declVarInput"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Model/declVarOutput"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Model/abbrs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Model/macroses"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Model/reqs"/>
+    </genClasses>
     <genClasses ecoreClass="Edtl.ecore#//DeclVarInput">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//DeclVarInput/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//DeclVarInput/inputCounter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//DeclVarInput/varDecls"/>
     </genClasses>
     <genClasses ecoreClass="Edtl.ecore#//DeclVarOutput">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//DeclVarOutput/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//DeclVarOutput/outputCounter"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//DeclVarOutput/varDecls"/>
     </genClasses>
     <genClasses ecoreClass="Edtl.ecore#//VarDeclaration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//VarDeclaration/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//VarDeclaration/v"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//VarDeclaration/location"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//VarDeclaration/type"/>
     </genClasses>
     <genClasses ecoreClass="Edtl.ecore#//Abbr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Abbr/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Abbr/expr"/>
     </genClasses>
     <genClasses ecoreClass="Edtl.ecore#//Macros">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//Macros/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Macros/args"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Macros/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Macros/expr"/>
     </genClasses>
     <genClasses ecoreClass="Edtl.ecore#//VarList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//VarList/vars"/>
     </genClasses>
     <genClasses ecoreClass="Edtl.ecore#//Requirement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//Requirement/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//Requirement/attribute"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Requirement/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Requirement/trigExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//Requirement/nlTrig"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Requirement/invExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//Requirement/nlInv"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Requirement/finalExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//Requirement/nlFinal"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Requirement/delayExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//Requirement/nlDelay"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Requirement/reacExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//Requirement/nlReac"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//Requirement/relExpr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//Requirement/nlRel"/>
     </genClasses>
     <genClasses ecoreClass="Edtl.ecore#//Variable"/>
     <genClasses ecoreClass="Edtl.ecore#//Expression">
@@ -71,10 +89,10 @@
     </genClasses>
     <genClasses ecoreClass="Edtl.ecore#//PrimaryExpression">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//PrimaryExpression/const"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Edtl.ecore#//PrimaryExpression/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//PrimaryExpression/tau"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Edtl.ecore#//PrimaryExpression/v"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Edtl.ecore#//PrimaryExpression/macros"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//PrimaryExpression/args"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//PrimaryExpression/tau"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//PrimaryExpression/nestExpr"/>
     </genClasses>
     <genClasses ecoreClass="Edtl.ecore#//ParamAssignmentElements">
@@ -82,9 +100,6 @@
     </genClasses>
     <genClasses ecoreClass="Edtl.ecore#//CrossVarAbbr">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Edtl.ecore#//CrossVarAbbr/name"/>
-    </genClasses>
-    <genClasses ecoreClass="Edtl.ecore#//w">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Edtl.ecore#//w/elements"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -69,32 +69,58 @@ public interface EdtlPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Decl Var Input</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__DECL_VAR_INPUT = 0;
+
+  /**
+   * The feature id for the '<em><b>Decl Var Output</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__DECL_VAR_OUTPUT = 1;
+
+  /**
+   * The feature id for the '<em><b>Abbrs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__ABBRS = 2;
+
+  /**
+   * The feature id for the '<em><b>Macroses</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__MACROSES = 3;
+
+  /**
+   * The feature id for the '<em><b>Reqs</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__REQS = 4;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link su.nsk.iae.edtl.edtl.impl.StatementImpl <em>Statement</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see su.nsk.iae.edtl.edtl.impl.StatementImpl
-   * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getStatement()
-   * @generated
-   */
-  int STATEMENT = 1;
-
-  /**
-   * The number of structural features of the '<em>Statement</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STATEMENT_FEATURE_COUNT = 0;
+  int MODEL_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.edtl.edtl.impl.DeclVarInputImpl <em>Decl Var Input</em>}' class.
@@ -104,16 +130,25 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getDeclVarInput()
    * @generated
    */
-  int DECL_VAR_INPUT = 2;
+  int DECL_VAR_INPUT = 1;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference list.
+   * The feature id for the '<em><b>Input Counter</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECL_VAR_INPUT__VALUE = STATEMENT_FEATURE_COUNT + 0;
+  int DECL_VAR_INPUT__INPUT_COUNTER = 0;
+
+  /**
+   * The feature id for the '<em><b>Var Decls</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECL_VAR_INPUT__VAR_DECLS = 1;
 
   /**
    * The number of structural features of the '<em>Decl Var Input</em>' class.
@@ -122,7 +157,7 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECL_VAR_INPUT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int DECL_VAR_INPUT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.edtl.edtl.impl.DeclVarOutputImpl <em>Decl Var Output</em>}' class.
@@ -132,16 +167,25 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getDeclVarOutput()
    * @generated
    */
-  int DECL_VAR_OUTPUT = 3;
+  int DECL_VAR_OUTPUT = 2;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference list.
+   * The feature id for the '<em><b>Output Counter</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DECL_VAR_OUTPUT__VALUE = STATEMENT_FEATURE_COUNT + 0;
+  int DECL_VAR_OUTPUT__OUTPUT_COUNTER = 0;
+
+  /**
+   * The feature id for the '<em><b>Var Decls</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DECL_VAR_OUTPUT__VAR_DECLS = 1;
 
   /**
    * The number of structural features of the '<em>Decl Var Output</em>' class.
@@ -150,7 +194,7 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DECL_VAR_OUTPUT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 1;
+  int DECL_VAR_OUTPUT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.edtl.edtl.impl.VarDeclarationImpl <em>Var Declaration</em>}' class.
@@ -160,16 +204,25 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getVarDeclaration()
    * @generated
    */
-  int VAR_DECLARATION = 4;
+  int VAR_DECLARATION = 3;
 
   /**
-   * The feature id for the '<em><b>Var</b></em>' containment reference.
+   * The feature id for the '<em><b>V</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_DECLARATION__VAR = 0;
+  int VAR_DECLARATION__V = 0;
+
+  /**
+   * The feature id for the '<em><b>Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAR_DECLARATION__LOCATION = 1;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -178,7 +231,7 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VAR_DECLARATION__TYPE = 1;
+  int VAR_DECLARATION__TYPE = 2;
 
   /**
    * The number of structural features of the '<em>Var Declaration</em>' class.
@@ -187,7 +240,35 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VAR_DECLARATION_FEATURE_COUNT = 2;
+  int VAR_DECLARATION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link su.nsk.iae.edtl.edtl.impl.CrossVarAbbrImpl <em>Cross Var Abbr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see su.nsk.iae.edtl.edtl.impl.CrossVarAbbrImpl
+   * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getCrossVarAbbr()
+   * @generated
+   */
+  int CROSS_VAR_ABBR = 19;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CROSS_VAR_ABBR__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Cross Var Abbr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CROSS_VAR_ABBR_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.edtl.edtl.impl.AbbrImpl <em>Abbr</em>}' class.
@@ -197,7 +278,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getAbbr()
    * @generated
    */
-  int ABBR = 5;
+  int ABBR = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -206,16 +287,16 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ABBR__NAME = STATEMENT_FEATURE_COUNT + 0;
+  int ABBR__NAME = CROSS_VAR_ABBR__NAME;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ABBR__VALUE = STATEMENT_FEATURE_COUNT + 1;
+  int ABBR__EXPR = CROSS_VAR_ABBR_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Abbr</em>' class.
@@ -224,7 +305,7 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ABBR_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 2;
+  int ABBR_FEATURE_COUNT = CROSS_VAR_ABBR_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.edtl.edtl.impl.MacrosImpl <em>Macros</em>}' class.
@@ -234,7 +315,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getMacros()
    * @generated
    */
-  int MACROS = 6;
+  int MACROS = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -243,7 +324,7 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MACROS__NAME = STATEMENT_FEATURE_COUNT + 0;
+  int MACROS__NAME = 0;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference.
@@ -252,16 +333,16 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MACROS__ARGS = STATEMENT_FEATURE_COUNT + 1;
+  int MACROS__ARGS = 1;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference list.
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MACROS__VALUE = STATEMENT_FEATURE_COUNT + 2;
+  int MACROS__EXPR = 2;
 
   /**
    * The number of structural features of the '<em>Macros</em>' class.
@@ -270,7 +351,7 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MACROS_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
+  int MACROS_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.edtl.edtl.impl.VarListImpl <em>Var List</em>}' class.
@@ -280,7 +361,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getVarList()
    * @generated
    */
-  int VAR_LIST = 7;
+  int VAR_LIST = 6;
 
   /**
    * The feature id for the '<em><b>Vars</b></em>' containment reference list.
@@ -308,7 +389,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getRequirement()
    * @generated
    */
-  int REQUIREMENT = 8;
+  int REQUIREMENT = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -317,25 +398,115 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REQUIREMENT__NAME = STATEMENT_FEATURE_COUNT + 0;
+  int REQUIREMENT__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Attribute</b></em>' attribute list.
+   * The feature id for the '<em><b>Trig Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REQUIREMENT__ATTRIBUTE = STATEMENT_FEATURE_COUNT + 1;
+  int REQUIREMENT__TRIG_EXPR = 1;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference list.
+   * The feature id for the '<em><b>Nl Trig</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int REQUIREMENT__VALUE = STATEMENT_FEATURE_COUNT + 2;
+  int REQUIREMENT__NL_TRIG = 2;
+
+  /**
+   * The feature id for the '<em><b>Inv Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIREMENT__INV_EXPR = 3;
+
+  /**
+   * The feature id for the '<em><b>Nl Inv</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIREMENT__NL_INV = 4;
+
+  /**
+   * The feature id for the '<em><b>Final Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIREMENT__FINAL_EXPR = 5;
+
+  /**
+   * The feature id for the '<em><b>Nl Final</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIREMENT__NL_FINAL = 6;
+
+  /**
+   * The feature id for the '<em><b>Delay Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIREMENT__DELAY_EXPR = 7;
+
+  /**
+   * The feature id for the '<em><b>Nl Delay</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIREMENT__NL_DELAY = 8;
+
+  /**
+   * The feature id for the '<em><b>Reac Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIREMENT__REAC_EXPR = 9;
+
+  /**
+   * The feature id for the '<em><b>Nl Reac</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIREMENT__NL_REAC = 10;
+
+  /**
+   * The feature id for the '<em><b>Rel Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIREMENT__REL_EXPR = 11;
+
+  /**
+   * The feature id for the '<em><b>Nl Rel</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REQUIREMENT__NL_REL = 12;
 
   /**
    * The number of structural features of the '<em>Requirement</em>' class.
@@ -344,35 +515,7 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int REQUIREMENT_FEATURE_COUNT = STATEMENT_FEATURE_COUNT + 3;
-
-  /**
-   * The meta object id for the '{@link su.nsk.iae.edtl.edtl.impl.CrossVarAbbrImpl <em>Cross Var Abbr</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see su.nsk.iae.edtl.edtl.impl.CrossVarAbbrImpl
-   * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getCrossVarAbbr()
-   * @generated
-   */
-  int CROSS_VAR_ABBR = 20;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CROSS_VAR_ABBR__NAME = 0;
-
-  /**
-   * The number of structural features of the '<em>Cross Var Abbr</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CROSS_VAR_ABBR_FEATURE_COUNT = 1;
+  int REQUIREMENT_FEATURE_COUNT = 13;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.edtl.edtl.impl.VariableImpl <em>Variable</em>}' class.
@@ -382,7 +525,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 9;
+  int VARIABLE = 8;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -410,7 +553,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 10;
+  int EXPRESSION = 9;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -456,7 +599,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getXorExpression()
    * @generated
    */
-  int XOR_EXPRESSION = 11;
+  int XOR_EXPRESSION = 10;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -502,7 +645,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getAndExpression()
    * @generated
    */
-  int AND_EXPRESSION = 12;
+  int AND_EXPRESSION = 11;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -557,7 +700,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getCompExpression()
    * @generated
    */
-  int COMP_EXPRESSION = 13;
+  int COMP_EXPRESSION = 12;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -621,7 +764,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getEquExpression()
    * @generated
    */
-  int EQU_EXPRESSION = 14;
+  int EQU_EXPRESSION = 13;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -694,7 +837,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getUnExpression()
    * @generated
    */
-  int UN_EXPRESSION = 15;
+  int UN_EXPRESSION = 14;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -776,7 +919,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getTauExpression()
    * @generated
    */
-  int TAU_EXPRESSION = 16;
+  int TAU_EXPRESSION = 15;
 
   /**
    * The feature id for the '<em><b>Time</b></em>' containment reference.
@@ -804,7 +947,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getTimeLiteral()
    * @generated
    */
-  int TIME_LITERAL = 17;
+  int TIME_LITERAL = 16;
 
   /**
    * The feature id for the '<em><b>Interval</b></em>' attribute.
@@ -832,7 +975,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getPrimaryExpression()
    * @generated
    */
-  int PRIMARY_EXPRESSION = 18;
+  int PRIMARY_EXPRESSION = 17;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -907,13 +1050,22 @@ public interface EdtlPackage extends EPackage
   int PRIMARY_EXPRESSION__CONST = UN_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Var</b></em>' reference.
+   * The feature id for the '<em><b>Tau</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__VAR = UN_EXPRESSION_FEATURE_COUNT + 1;
+  int PRIMARY_EXPRESSION__TAU = UN_EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>V</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PRIMARY_EXPRESSION__V = UN_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Macros</b></em>' reference.
@@ -922,7 +1074,7 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__MACROS = UN_EXPRESSION_FEATURE_COUNT + 2;
+  int PRIMARY_EXPRESSION__MACROS = UN_EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Args</b></em>' containment reference.
@@ -931,16 +1083,7 @@ public interface EdtlPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PRIMARY_EXPRESSION__ARGS = UN_EXPRESSION_FEATURE_COUNT + 3;
-
-  /**
-   * The feature id for the '<em><b>Tau</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRIMARY_EXPRESSION__TAU = UN_EXPRESSION_FEATURE_COUNT + 4;
+  int PRIMARY_EXPRESSION__ARGS = UN_EXPRESSION_FEATURE_COUNT + 4;
 
   /**
    * The feature id for the '<em><b>Nest Expr</b></em>' containment reference.
@@ -968,7 +1111,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getParamAssignmentElements()
    * @generated
    */
-  int PARAM_ASSIGNMENT_ELEMENTS = 19;
+  int PARAM_ASSIGNMENT_ELEMENTS = 18;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' reference list.
@@ -989,34 +1132,6 @@ public interface EdtlPackage extends EPackage
   int PARAM_ASSIGNMENT_ELEMENTS_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link su.nsk.iae.edtl.edtl.impl.wImpl <em>w</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see su.nsk.iae.edtl.edtl.impl.wImpl
-   * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getw()
-   * @generated
-   */
-  int W = 21;
-
-  /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int W__ELEMENTS = MODEL_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>w</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int W_FEATURE_COUNT = MODEL_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link su.nsk.iae.edtl.edtl.EquOperator <em>Equ Operator</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1024,7 +1139,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getEquOperator()
    * @generated
    */
-  int EQU_OPERATOR = 22;
+  int EQU_OPERATOR = 20;
 
   /**
    * The meta object id for the '{@link su.nsk.iae.edtl.edtl.CompOperator <em>Comp Operator</em>}' enum.
@@ -1034,7 +1149,7 @@ public interface EdtlPackage extends EPackage
    * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getCompOperator()
    * @generated
    */
-  int COMP_OPERATOR = 23;
+  int COMP_OPERATOR = 21;
 
 
   /**
@@ -1048,14 +1163,59 @@ public interface EdtlPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for class '{@link su.nsk.iae.edtl.edtl.Statement <em>Statement</em>}'.
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.Model#getDeclVarInput <em>Decl Var Input</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Statement</em>'.
-   * @see su.nsk.iae.edtl.edtl.Statement
+   * @return the meta object for the containment reference list '<em>Decl Var Input</em>'.
+   * @see su.nsk.iae.edtl.edtl.Model#getDeclVarInput()
+   * @see #getModel()
    * @generated
    */
-  EClass getStatement();
+  EReference getModel_DeclVarInput();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.Model#getDeclVarOutput <em>Decl Var Output</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Decl Var Output</em>'.
+   * @see su.nsk.iae.edtl.edtl.Model#getDeclVarOutput()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_DeclVarOutput();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.Model#getAbbrs <em>Abbrs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Abbrs</em>'.
+   * @see su.nsk.iae.edtl.edtl.Model#getAbbrs()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Abbrs();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.Model#getMacroses <em>Macroses</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Macroses</em>'.
+   * @see su.nsk.iae.edtl.edtl.Model#getMacroses()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Macroses();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.Model#getReqs <em>Reqs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Reqs</em>'.
+   * @see su.nsk.iae.edtl.edtl.Model#getReqs()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Reqs();
 
   /**
    * Returns the meta object for class '{@link su.nsk.iae.edtl.edtl.DeclVarInput <em>Decl Var Input</em>}'.
@@ -1068,15 +1228,26 @@ public interface EdtlPackage extends EPackage
   EClass getDeclVarInput();
 
   /**
-   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.DeclVarInput#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link su.nsk.iae.edtl.edtl.DeclVarInput#getInputCounter <em>Input Counter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Value</em>'.
-   * @see su.nsk.iae.edtl.edtl.DeclVarInput#getValue()
+   * @return the meta object for the attribute '<em>Input Counter</em>'.
+   * @see su.nsk.iae.edtl.edtl.DeclVarInput#getInputCounter()
    * @see #getDeclVarInput()
    * @generated
    */
-  EReference getDeclVarInput_Value();
+  EAttribute getDeclVarInput_InputCounter();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.DeclVarInput#getVarDecls <em>Var Decls</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Var Decls</em>'.
+   * @see su.nsk.iae.edtl.edtl.DeclVarInput#getVarDecls()
+   * @see #getDeclVarInput()
+   * @generated
+   */
+  EReference getDeclVarInput_VarDecls();
 
   /**
    * Returns the meta object for class '{@link su.nsk.iae.edtl.edtl.DeclVarOutput <em>Decl Var Output</em>}'.
@@ -1089,15 +1260,26 @@ public interface EdtlPackage extends EPackage
   EClass getDeclVarOutput();
 
   /**
-   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.DeclVarOutput#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link su.nsk.iae.edtl.edtl.DeclVarOutput#getOutputCounter <em>Output Counter</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Value</em>'.
-   * @see su.nsk.iae.edtl.edtl.DeclVarOutput#getValue()
+   * @return the meta object for the attribute '<em>Output Counter</em>'.
+   * @see su.nsk.iae.edtl.edtl.DeclVarOutput#getOutputCounter()
    * @see #getDeclVarOutput()
    * @generated
    */
-  EReference getDeclVarOutput_Value();
+  EAttribute getDeclVarOutput_OutputCounter();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.DeclVarOutput#getVarDecls <em>Var Decls</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Var Decls</em>'.
+   * @see su.nsk.iae.edtl.edtl.DeclVarOutput#getVarDecls()
+   * @see #getDeclVarOutput()
+   * @generated
+   */
+  EReference getDeclVarOutput_VarDecls();
 
   /**
    * Returns the meta object for class '{@link su.nsk.iae.edtl.edtl.VarDeclaration <em>Var Declaration</em>}'.
@@ -1110,15 +1292,26 @@ public interface EdtlPackage extends EPackage
   EClass getVarDeclaration();
 
   /**
-   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.VarDeclaration#getVar <em>Var</em>}'.
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.VarDeclaration#getV <em>V</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Var</em>'.
-   * @see su.nsk.iae.edtl.edtl.VarDeclaration#getVar()
+   * @return the meta object for the containment reference '<em>V</em>'.
+   * @see su.nsk.iae.edtl.edtl.VarDeclaration#getV()
    * @see #getVarDeclaration()
    * @generated
    */
-  EReference getVarDeclaration_Var();
+  EReference getVarDeclaration_V();
+
+  /**
+   * Returns the meta object for the attribute '{@link su.nsk.iae.edtl.edtl.VarDeclaration#getLocation <em>Location</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Location</em>'.
+   * @see su.nsk.iae.edtl.edtl.VarDeclaration#getLocation()
+   * @see #getVarDeclaration()
+   * @generated
+   */
+  EAttribute getVarDeclaration_Location();
 
   /**
    * Returns the meta object for the attribute '{@link su.nsk.iae.edtl.edtl.VarDeclaration#getType <em>Type</em>}'.
@@ -1142,15 +1335,15 @@ public interface EdtlPackage extends EPackage
   EClass getAbbr();
 
   /**
-   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.Abbr#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.Abbr#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Value</em>'.
-   * @see su.nsk.iae.edtl.edtl.Abbr#getValue()
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see su.nsk.iae.edtl.edtl.Abbr#getExpr()
    * @see #getAbbr()
    * @generated
    */
-  EReference getAbbr_Value();
+  EReference getAbbr_Expr();
 
   /**
    * Returns the meta object for class '{@link su.nsk.iae.edtl.edtl.Macros <em>Macros</em>}'.
@@ -1185,15 +1378,15 @@ public interface EdtlPackage extends EPackage
   EReference getMacros_Args();
 
   /**
-   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.Macros#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.Macros#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Value</em>'.
-   * @see su.nsk.iae.edtl.edtl.Macros#getValue()
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see su.nsk.iae.edtl.edtl.Macros#getExpr()
    * @see #getMacros()
    * @generated
    */
-  EReference getMacros_Value();
+  EReference getMacros_Expr();
 
   /**
    * Returns the meta object for class '{@link su.nsk.iae.edtl.edtl.VarList <em>Var List</em>}'.
@@ -1238,26 +1431,136 @@ public interface EdtlPackage extends EPackage
   EAttribute getRequirement_Name();
 
   /**
-   * Returns the meta object for the attribute list '{@link su.nsk.iae.edtl.edtl.Requirement#getAttribute <em>Attribute</em>}'.
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.Requirement#getTrigExpr <em>Trig Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Attribute</em>'.
-   * @see su.nsk.iae.edtl.edtl.Requirement#getAttribute()
+   * @return the meta object for the containment reference '<em>Trig Expr</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getTrigExpr()
    * @see #getRequirement()
    * @generated
    */
-  EAttribute getRequirement_Attribute();
+  EReference getRequirement_TrigExpr();
 
   /**
-   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.Requirement#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link su.nsk.iae.edtl.edtl.Requirement#getNlTrig <em>Nl Trig</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Value</em>'.
-   * @see su.nsk.iae.edtl.edtl.Requirement#getValue()
+   * @return the meta object for the attribute '<em>Nl Trig</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getNlTrig()
    * @see #getRequirement()
    * @generated
    */
-  EReference getRequirement_Value();
+  EAttribute getRequirement_NlTrig();
+
+  /**
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.Requirement#getInvExpr <em>Inv Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Inv Expr</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getInvExpr()
+   * @see #getRequirement()
+   * @generated
+   */
+  EReference getRequirement_InvExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link su.nsk.iae.edtl.edtl.Requirement#getNlInv <em>Nl Inv</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nl Inv</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getNlInv()
+   * @see #getRequirement()
+   * @generated
+   */
+  EAttribute getRequirement_NlInv();
+
+  /**
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.Requirement#getFinalExpr <em>Final Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Final Expr</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getFinalExpr()
+   * @see #getRequirement()
+   * @generated
+   */
+  EReference getRequirement_FinalExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link su.nsk.iae.edtl.edtl.Requirement#getNlFinal <em>Nl Final</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nl Final</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getNlFinal()
+   * @see #getRequirement()
+   * @generated
+   */
+  EAttribute getRequirement_NlFinal();
+
+  /**
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.Requirement#getDelayExpr <em>Delay Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Delay Expr</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getDelayExpr()
+   * @see #getRequirement()
+   * @generated
+   */
+  EReference getRequirement_DelayExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link su.nsk.iae.edtl.edtl.Requirement#getNlDelay <em>Nl Delay</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nl Delay</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getNlDelay()
+   * @see #getRequirement()
+   * @generated
+   */
+  EAttribute getRequirement_NlDelay();
+
+  /**
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.Requirement#getReacExpr <em>Reac Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Reac Expr</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getReacExpr()
+   * @see #getRequirement()
+   * @generated
+   */
+  EReference getRequirement_ReacExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link su.nsk.iae.edtl.edtl.Requirement#getNlReac <em>Nl Reac</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nl Reac</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getNlReac()
+   * @see #getRequirement()
+   * @generated
+   */
+  EAttribute getRequirement_NlReac();
+
+  /**
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.Requirement#getRelExpr <em>Rel Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Rel Expr</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getRelExpr()
+   * @see #getRequirement()
+   * @generated
+   */
+  EReference getRequirement_RelExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link su.nsk.iae.edtl.edtl.Requirement#getNlRel <em>Nl Rel</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Nl Rel</em>'.
+   * @see su.nsk.iae.edtl.edtl.Requirement#getNlRel()
+   * @see #getRequirement()
+   * @generated
+   */
+  EAttribute getRequirement_NlRel();
 
   /**
    * Returns the meta object for class '{@link su.nsk.iae.edtl.edtl.Variable <em>Variable</em>}'.
@@ -1470,15 +1773,26 @@ public interface EdtlPackage extends EPackage
   EAttribute getPrimaryExpression_Const();
 
   /**
-   * Returns the meta object for the reference '{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getVar <em>Var</em>}'.
+   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getTau <em>Tau</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Var</em>'.
-   * @see su.nsk.iae.edtl.edtl.PrimaryExpression#getVar()
+   * @return the meta object for the containment reference '<em>Tau</em>'.
+   * @see su.nsk.iae.edtl.edtl.PrimaryExpression#getTau()
    * @see #getPrimaryExpression()
    * @generated
    */
-  EReference getPrimaryExpression_Var();
+  EReference getPrimaryExpression_Tau();
+
+  /**
+   * Returns the meta object for the reference '{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getV <em>V</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>V</em>'.
+   * @see su.nsk.iae.edtl.edtl.PrimaryExpression#getV()
+   * @see #getPrimaryExpression()
+   * @generated
+   */
+  EReference getPrimaryExpression_V();
 
   /**
    * Returns the meta object for the reference '{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getMacros <em>Macros</em>}'.
@@ -1501,17 +1815,6 @@ public interface EdtlPackage extends EPackage
    * @generated
    */
   EReference getPrimaryExpression_Args();
-
-  /**
-   * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getTau <em>Tau</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Tau</em>'.
-   * @see su.nsk.iae.edtl.edtl.PrimaryExpression#getTau()
-   * @see #getPrimaryExpression()
-   * @generated
-   */
-  EReference getPrimaryExpression_Tau();
 
   /**
    * Returns the meta object for the containment reference '{@link su.nsk.iae.edtl.edtl.PrimaryExpression#getNestExpr <em>Nest Expr</em>}'.
@@ -1567,27 +1870,6 @@ public interface EdtlPackage extends EPackage
   EAttribute getCrossVarAbbr_Name();
 
   /**
-   * Returns the meta object for class '{@link su.nsk.iae.edtl.edtl.w <em>w</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>w</em>'.
-   * @see su.nsk.iae.edtl.edtl.w
-   * @generated
-   */
-  EClass getw();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link su.nsk.iae.edtl.edtl.w#getElements <em>Elements</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Elements</em>'.
-   * @see su.nsk.iae.edtl.edtl.w#getElements()
-   * @see #getw()
-   * @generated
-   */
-  EReference getw_Elements();
-
-  /**
    * Returns the meta object for enum '{@link su.nsk.iae.edtl.edtl.EquOperator <em>Equ Operator</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1641,14 +1923,44 @@ public interface EdtlPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '{@link su.nsk.iae.edtl.edtl.impl.StatementImpl <em>Statement</em>}' class.
+     * The meta object literal for the '<em><b>Decl Var Input</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see su.nsk.iae.edtl.edtl.impl.StatementImpl
-     * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getStatement()
      * @generated
      */
-    EClass STATEMENT = eINSTANCE.getStatement();
+    EReference MODEL__DECL_VAR_INPUT = eINSTANCE.getModel_DeclVarInput();
+
+    /**
+     * The meta object literal for the '<em><b>Decl Var Output</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__DECL_VAR_OUTPUT = eINSTANCE.getModel_DeclVarOutput();
+
+    /**
+     * The meta object literal for the '<em><b>Abbrs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__ABBRS = eINSTANCE.getModel_Abbrs();
+
+    /**
+     * The meta object literal for the '<em><b>Macroses</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__MACROSES = eINSTANCE.getModel_Macroses();
+
+    /**
+     * The meta object literal for the '<em><b>Reqs</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__REQS = eINSTANCE.getModel_Reqs();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.edtl.edtl.impl.DeclVarInputImpl <em>Decl Var Input</em>}' class.
@@ -1661,12 +1973,20 @@ public interface EdtlPackage extends EPackage
     EClass DECL_VAR_INPUT = eINSTANCE.getDeclVarInput();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Input Counter</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DECL_VAR_INPUT__VALUE = eINSTANCE.getDeclVarInput_Value();
+    EAttribute DECL_VAR_INPUT__INPUT_COUNTER = eINSTANCE.getDeclVarInput_InputCounter();
+
+    /**
+     * The meta object literal for the '<em><b>Var Decls</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECL_VAR_INPUT__VAR_DECLS = eINSTANCE.getDeclVarInput_VarDecls();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.edtl.edtl.impl.DeclVarOutputImpl <em>Decl Var Output</em>}' class.
@@ -1679,12 +1999,20 @@ public interface EdtlPackage extends EPackage
     EClass DECL_VAR_OUTPUT = eINSTANCE.getDeclVarOutput();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Output Counter</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DECL_VAR_OUTPUT__VALUE = eINSTANCE.getDeclVarOutput_Value();
+    EAttribute DECL_VAR_OUTPUT__OUTPUT_COUNTER = eINSTANCE.getDeclVarOutput_OutputCounter();
+
+    /**
+     * The meta object literal for the '<em><b>Var Decls</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DECL_VAR_OUTPUT__VAR_DECLS = eINSTANCE.getDeclVarOutput_VarDecls();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.edtl.edtl.impl.VarDeclarationImpl <em>Var Declaration</em>}' class.
@@ -1697,12 +2025,20 @@ public interface EdtlPackage extends EPackage
     EClass VAR_DECLARATION = eINSTANCE.getVarDeclaration();
 
     /**
-     * The meta object literal for the '<em><b>Var</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>V</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VAR_DECLARATION__VAR = eINSTANCE.getVarDeclaration_Var();
+    EReference VAR_DECLARATION__V = eINSTANCE.getVarDeclaration_V();
+
+    /**
+     * The meta object literal for the '<em><b>Location</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VAR_DECLARATION__LOCATION = eINSTANCE.getVarDeclaration_Location();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
@@ -1723,12 +2059,12 @@ public interface EdtlPackage extends EPackage
     EClass ABBR = eINSTANCE.getAbbr();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ABBR__VALUE = eINSTANCE.getAbbr_Value();
+    EReference ABBR__EXPR = eINSTANCE.getAbbr_Expr();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.edtl.edtl.impl.MacrosImpl <em>Macros</em>}' class.
@@ -1757,12 +2093,12 @@ public interface EdtlPackage extends EPackage
     EReference MACROS__ARGS = eINSTANCE.getMacros_Args();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MACROS__VALUE = eINSTANCE.getMacros_Value();
+    EReference MACROS__EXPR = eINSTANCE.getMacros_Expr();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.edtl.edtl.impl.VarListImpl <em>Var List</em>}' class.
@@ -1801,20 +2137,100 @@ public interface EdtlPackage extends EPackage
     EAttribute REQUIREMENT__NAME = eINSTANCE.getRequirement_Name();
 
     /**
-     * The meta object literal for the '<em><b>Attribute</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Trig Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REQUIREMENT__ATTRIBUTE = eINSTANCE.getRequirement_Attribute();
+    EReference REQUIREMENT__TRIG_EXPR = eINSTANCE.getRequirement_TrigExpr();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Nl Trig</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference REQUIREMENT__VALUE = eINSTANCE.getRequirement_Value();
+    EAttribute REQUIREMENT__NL_TRIG = eINSTANCE.getRequirement_NlTrig();
+
+    /**
+     * The meta object literal for the '<em><b>Inv Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REQUIREMENT__INV_EXPR = eINSTANCE.getRequirement_InvExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Nl Inv</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REQUIREMENT__NL_INV = eINSTANCE.getRequirement_NlInv();
+
+    /**
+     * The meta object literal for the '<em><b>Final Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REQUIREMENT__FINAL_EXPR = eINSTANCE.getRequirement_FinalExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Nl Final</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REQUIREMENT__NL_FINAL = eINSTANCE.getRequirement_NlFinal();
+
+    /**
+     * The meta object literal for the '<em><b>Delay Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REQUIREMENT__DELAY_EXPR = eINSTANCE.getRequirement_DelayExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Nl Delay</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REQUIREMENT__NL_DELAY = eINSTANCE.getRequirement_NlDelay();
+
+    /**
+     * The meta object literal for the '<em><b>Reac Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REQUIREMENT__REAC_EXPR = eINSTANCE.getRequirement_ReacExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Nl Reac</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REQUIREMENT__NL_REAC = eINSTANCE.getRequirement_NlReac();
+
+    /**
+     * The meta object literal for the '<em><b>Rel Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REQUIREMENT__REL_EXPR = eINSTANCE.getRequirement_RelExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Nl Rel</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REQUIREMENT__NL_REL = eINSTANCE.getRequirement_NlRel();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.edtl.edtl.impl.VariableImpl <em>Variable</em>}' class.
@@ -1997,12 +2413,20 @@ public interface EdtlPackage extends EPackage
     EAttribute PRIMARY_EXPRESSION__CONST = eINSTANCE.getPrimaryExpression_Const();
 
     /**
-     * The meta object literal for the '<em><b>Var</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Tau</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PRIMARY_EXPRESSION__VAR = eINSTANCE.getPrimaryExpression_Var();
+    EReference PRIMARY_EXPRESSION__TAU = eINSTANCE.getPrimaryExpression_Tau();
+
+    /**
+     * The meta object literal for the '<em><b>V</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PRIMARY_EXPRESSION__V = eINSTANCE.getPrimaryExpression_V();
 
     /**
      * The meta object literal for the '<em><b>Macros</b></em>' reference feature.
@@ -2019,14 +2443,6 @@ public interface EdtlPackage extends EPackage
      * @generated
      */
     EReference PRIMARY_EXPRESSION__ARGS = eINSTANCE.getPrimaryExpression_Args();
-
-    /**
-     * The meta object literal for the '<em><b>Tau</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PRIMARY_EXPRESSION__TAU = eINSTANCE.getPrimaryExpression_Tau();
 
     /**
      * The meta object literal for the '<em><b>Nest Expr</b></em>' containment reference feature.
@@ -2071,24 +2487,6 @@ public interface EdtlPackage extends EPackage
      * @generated
      */
     EAttribute CROSS_VAR_ABBR__NAME = eINSTANCE.getCrossVarAbbr_Name();
-
-    /**
-     * The meta object literal for the '{@link su.nsk.iae.edtl.edtl.impl.wImpl <em>w</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see su.nsk.iae.edtl.edtl.impl.wImpl
-     * @see su.nsk.iae.edtl.edtl.impl.EdtlPackageImpl#getw()
-     * @generated
-     */
-    EClass W = eINSTANCE.getw();
-
-    /**
-     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference W__ELEMENTS = eINSTANCE.getw_Elements();
 
     /**
      * The meta object literal for the '{@link su.nsk.iae.edtl.edtl.EquOperator <em>Equ Operator</em>}' enum.

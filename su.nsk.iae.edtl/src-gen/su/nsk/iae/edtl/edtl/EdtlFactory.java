@@ -33,15 +33,6 @@ public interface EdtlFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Statement</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Statement</em>'.
-   * @generated
-   */
-  Statement createStatement();
-
-  /**
    * Returns a new object of class '<em>Decl Var Input</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -211,15 +202,6 @@ public interface EdtlFactory extends EFactory
    * @generated
    */
   CrossVarAbbr createCrossVarAbbr();
-
-  /**
-   * Returns a new object of class '<em>w</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>w</em>'.
-   * @generated
-   */
-  w createw();
 
   /**
    * Returns the package supported by this factory.

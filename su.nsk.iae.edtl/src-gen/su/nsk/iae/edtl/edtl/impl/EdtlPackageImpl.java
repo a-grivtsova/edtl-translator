@@ -28,7 +28,6 @@ import su.nsk.iae.edtl.edtl.Model;
 import su.nsk.iae.edtl.edtl.ParamAssignmentElements;
 import su.nsk.iae.edtl.edtl.PrimaryExpression;
 import su.nsk.iae.edtl.edtl.Requirement;
-import su.nsk.iae.edtl.edtl.Statement;
 import su.nsk.iae.edtl.edtl.TauExpression;
 import su.nsk.iae.edtl.edtl.TimeLiteral;
 import su.nsk.iae.edtl.edtl.UnExpression;
@@ -36,7 +35,6 @@ import su.nsk.iae.edtl.edtl.VarDeclaration;
 import su.nsk.iae.edtl.edtl.VarList;
 import su.nsk.iae.edtl.edtl.Variable;
 import su.nsk.iae.edtl.edtl.XorExpression;
-import su.nsk.iae.edtl.edtl.w;
 
 /**
  * <!-- begin-user-doc -->
@@ -52,13 +50,6 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   private EClass modelEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass statementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -198,13 +189,6 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass wEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EEnum equOperatorEEnum = null;
 
   /**
@@ -294,9 +278,53 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EClass getStatement()
+  public EReference getModel_DeclVarInput()
   {
-    return statementEClass;
+    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModel_DeclVarOutput()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModel_Abbrs()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModel_Macroses()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getModel_Reqs()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -316,9 +344,20 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EReference getDeclVarInput_Value()
+  public EAttribute getDeclVarInput_InputCounter()
   {
-    return (EReference)declVarInputEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)declVarInputEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDeclVarInput_VarDecls()
+  {
+    return (EReference)declVarInputEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -338,9 +377,20 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EReference getDeclVarOutput_Value()
+  public EAttribute getDeclVarOutput_OutputCounter()
   {
-    return (EReference)declVarOutputEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)declVarOutputEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDeclVarOutput_VarDecls()
+  {
+    return (EReference)declVarOutputEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -360,7 +410,7 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EReference getVarDeclaration_Var()
+  public EReference getVarDeclaration_V()
   {
     return (EReference)varDeclarationEClass.getEStructuralFeatures().get(0);
   }
@@ -371,9 +421,20 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EAttribute getVarDeclaration_Type()
+  public EAttribute getVarDeclaration_Location()
   {
     return (EAttribute)varDeclarationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getVarDeclaration_Type()
+  {
+    return (EAttribute)varDeclarationEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -393,7 +454,7 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EReference getAbbr_Value()
+  public EReference getAbbr_Expr()
   {
     return (EReference)abbrEClass.getEStructuralFeatures().get(0);
   }
@@ -437,7 +498,7 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EReference getMacros_Value()
+  public EReference getMacros_Expr()
   {
     return (EReference)macrosEClass.getEStructuralFeatures().get(2);
   }
@@ -492,9 +553,9 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EAttribute getRequirement_Attribute()
+  public EReference getRequirement_TrigExpr()
   {
-    return (EAttribute)requirementEClass.getEStructuralFeatures().get(1);
+    return (EReference)requirementEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -503,9 +564,119 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EReference getRequirement_Value()
+  public EAttribute getRequirement_NlTrig()
   {
-    return (EReference)requirementEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)requirementEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRequirement_InvExpr()
+  {
+    return (EReference)requirementEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRequirement_NlInv()
+  {
+    return (EAttribute)requirementEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRequirement_FinalExpr()
+  {
+    return (EReference)requirementEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRequirement_NlFinal()
+  {
+    return (EAttribute)requirementEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRequirement_DelayExpr()
+  {
+    return (EReference)requirementEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRequirement_NlDelay()
+  {
+    return (EAttribute)requirementEClass.getEStructuralFeatures().get(8);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRequirement_ReacExpr()
+  {
+    return (EReference)requirementEClass.getEStructuralFeatures().get(9);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRequirement_NlReac()
+  {
+    return (EAttribute)requirementEClass.getEStructuralFeatures().get(10);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getRequirement_RelExpr()
+  {
+    return (EReference)requirementEClass.getEStructuralFeatures().get(11);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getRequirement_NlRel()
+  {
+    return (EAttribute)requirementEClass.getEStructuralFeatures().get(12);
   }
 
   /**
@@ -734,7 +905,7 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EReference getPrimaryExpression_Var()
+  public EReference getPrimaryExpression_Tau()
   {
     return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(1);
   }
@@ -745,7 +916,7 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EReference getPrimaryExpression_Macros()
+  public EReference getPrimaryExpression_V()
   {
     return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(2);
   }
@@ -756,7 +927,7 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EReference getPrimaryExpression_Args()
+  public EReference getPrimaryExpression_Macros()
   {
     return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(3);
   }
@@ -767,7 +938,7 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EReference getPrimaryExpression_Tau()
+  public EReference getPrimaryExpression_Args()
   {
     return (EReference)primaryExpressionEClass.getEStructuralFeatures().get(4);
   }
@@ -833,28 +1004,6 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
    * @generated
    */
   @Override
-  public EClass getw()
-  {
-    return wEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getw_Elements()
-  {
-    return (EReference)wEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EEnum getEquOperator()
   {
     return equOperatorEEnum;
@@ -903,34 +1052,50 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-
-    statementEClass = createEClass(STATEMENT);
+    createEReference(modelEClass, MODEL__DECL_VAR_INPUT);
+    createEReference(modelEClass, MODEL__DECL_VAR_OUTPUT);
+    createEReference(modelEClass, MODEL__ABBRS);
+    createEReference(modelEClass, MODEL__MACROSES);
+    createEReference(modelEClass, MODEL__REQS);
 
     declVarInputEClass = createEClass(DECL_VAR_INPUT);
-    createEReference(declVarInputEClass, DECL_VAR_INPUT__VALUE);
+    createEAttribute(declVarInputEClass, DECL_VAR_INPUT__INPUT_COUNTER);
+    createEReference(declVarInputEClass, DECL_VAR_INPUT__VAR_DECLS);
 
     declVarOutputEClass = createEClass(DECL_VAR_OUTPUT);
-    createEReference(declVarOutputEClass, DECL_VAR_OUTPUT__VALUE);
+    createEAttribute(declVarOutputEClass, DECL_VAR_OUTPUT__OUTPUT_COUNTER);
+    createEReference(declVarOutputEClass, DECL_VAR_OUTPUT__VAR_DECLS);
 
     varDeclarationEClass = createEClass(VAR_DECLARATION);
-    createEReference(varDeclarationEClass, VAR_DECLARATION__VAR);
+    createEReference(varDeclarationEClass, VAR_DECLARATION__V);
+    createEAttribute(varDeclarationEClass, VAR_DECLARATION__LOCATION);
     createEAttribute(varDeclarationEClass, VAR_DECLARATION__TYPE);
 
     abbrEClass = createEClass(ABBR);
-    createEReference(abbrEClass, ABBR__VALUE);
+    createEReference(abbrEClass, ABBR__EXPR);
 
     macrosEClass = createEClass(MACROS);
     createEAttribute(macrosEClass, MACROS__NAME);
     createEReference(macrosEClass, MACROS__ARGS);
-    createEReference(macrosEClass, MACROS__VALUE);
+    createEReference(macrosEClass, MACROS__EXPR);
 
     varListEClass = createEClass(VAR_LIST);
     createEReference(varListEClass, VAR_LIST__VARS);
 
     requirementEClass = createEClass(REQUIREMENT);
     createEAttribute(requirementEClass, REQUIREMENT__NAME);
-    createEAttribute(requirementEClass, REQUIREMENT__ATTRIBUTE);
-    createEReference(requirementEClass, REQUIREMENT__VALUE);
+    createEReference(requirementEClass, REQUIREMENT__TRIG_EXPR);
+    createEAttribute(requirementEClass, REQUIREMENT__NL_TRIG);
+    createEReference(requirementEClass, REQUIREMENT__INV_EXPR);
+    createEAttribute(requirementEClass, REQUIREMENT__NL_INV);
+    createEReference(requirementEClass, REQUIREMENT__FINAL_EXPR);
+    createEAttribute(requirementEClass, REQUIREMENT__NL_FINAL);
+    createEReference(requirementEClass, REQUIREMENT__DELAY_EXPR);
+    createEAttribute(requirementEClass, REQUIREMENT__NL_DELAY);
+    createEReference(requirementEClass, REQUIREMENT__REAC_EXPR);
+    createEAttribute(requirementEClass, REQUIREMENT__NL_REAC);
+    createEReference(requirementEClass, REQUIREMENT__REL_EXPR);
+    createEAttribute(requirementEClass, REQUIREMENT__NL_REL);
 
     variableEClass = createEClass(VARIABLE);
 
@@ -961,10 +1126,10 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
 
     primaryExpressionEClass = createEClass(PRIMARY_EXPRESSION);
     createEAttribute(primaryExpressionEClass, PRIMARY_EXPRESSION__CONST);
-    createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__VAR);
+    createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__TAU);
+    createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__V);
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__MACROS);
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__ARGS);
-    createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__TAU);
     createEReference(primaryExpressionEClass, PRIMARY_EXPRESSION__NEST_EXPR);
 
     paramAssignmentElementsEClass = createEClass(PARAM_ASSIGNMENT_ELEMENTS);
@@ -972,9 +1137,6 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
 
     crossVarAbbrEClass = createEClass(CROSS_VAR_ABBR);
     createEAttribute(crossVarAbbrEClass, CROSS_VAR_ABBR__NAME);
-
-    wEClass = createEClass(W);
-    createEReference(wEClass, W__ELEMENTS);
 
     // Create enums
     equOperatorEEnum = createEEnum(EQU_OPERATOR);
@@ -1010,12 +1172,7 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    declVarInputEClass.getESuperTypes().add(this.getStatement());
-    declVarOutputEClass.getESuperTypes().add(this.getStatement());
-    abbrEClass.getESuperTypes().add(this.getStatement());
     abbrEClass.getESuperTypes().add(this.getCrossVarAbbr());
-    macrosEClass.getESuperTypes().add(this.getStatement());
-    requirementEClass.getESuperTypes().add(this.getStatement());
     variableEClass.getESuperTypes().add(this.getCrossVarAbbr());
     xorExpressionEClass.getESuperTypes().add(this.getExpression());
     andExpressionEClass.getESuperTypes().add(this.getXorExpression());
@@ -1023,38 +1180,53 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
     equExpressionEClass.getESuperTypes().add(this.getCompExpression());
     unExpressionEClass.getESuperTypes().add(this.getEquExpression());
     primaryExpressionEClass.getESuperTypes().add(this.getUnExpression());
-    wEClass.getESuperTypes().add(this.getModel());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(statementEClass, Statement.class, "Statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_DeclVarInput(), this.getDeclVarInput(), null, "declVarInput", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_DeclVarOutput(), this.getDeclVarOutput(), null, "declVarOutput", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Abbrs(), this.getAbbr(), null, "abbrs", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Macroses(), this.getMacros(), null, "macroses", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Reqs(), this.getRequirement(), null, "reqs", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declVarInputEClass, DeclVarInput.class, "DeclVarInput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDeclVarInput_Value(), this.getVarDeclaration(), null, "value", null, 0, -1, DeclVarInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeclVarInput_InputCounter(), ecorePackage.getEString(), "inputCounter", null, 0, 1, DeclVarInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclVarInput_VarDecls(), this.getVarDeclaration(), null, "varDecls", null, 0, -1, DeclVarInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declVarOutputEClass, DeclVarOutput.class, "DeclVarOutput", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDeclVarOutput_Value(), this.getVarDeclaration(), null, "value", null, 0, -1, DeclVarOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDeclVarOutput_OutputCounter(), ecorePackage.getEString(), "outputCounter", null, 0, 1, DeclVarOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDeclVarOutput_VarDecls(), this.getVarDeclaration(), null, "varDecls", null, 0, -1, DeclVarOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varDeclarationEClass, VarDeclaration.class, "VarDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getVarDeclaration_Var(), this.getVariable(), null, "var", null, 0, 1, VarDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVarDeclaration_V(), this.getVariable(), null, "v", null, 0, 1, VarDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getVarDeclaration_Location(), ecorePackage.getEString(), "location", null, 0, 1, VarDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getVarDeclaration_Type(), ecorePackage.getEString(), "type", null, 0, 1, VarDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(abbrEClass, Abbr.class, "Abbr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAbbr_Value(), this.getExpression(), null, "value", null, 0, -1, Abbr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAbbr_Expr(), this.getExpression(), null, "expr", null, 0, 1, Abbr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(macrosEClass, Macros.class, "Macros", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getMacros_Name(), ecorePackage.getEString(), "name", null, 0, 1, Macros.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMacros_Args(), this.getVarList(), null, "args", null, 0, 1, Macros.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMacros_Value(), this.getExpression(), null, "value", null, 0, -1, Macros.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMacros_Expr(), this.getExpression(), null, "expr", null, 0, 1, Macros.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varListEClass, VarList.class, "VarList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getVarList_Vars(), this.getVariable(), null, "vars", null, 0, -1, VarList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(requirementEClass, Requirement.class, "Requirement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRequirement_Name(), ecorePackage.getEString(), "name", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRequirement_Attribute(), ecorePackage.getEString(), "attribute", null, 0, -1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRequirement_Value(), this.getExpression(), null, "value", null, 0, -1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRequirement_TrigExpr(), this.getExpression(), null, "trigExpr", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRequirement_NlTrig(), ecorePackage.getEString(), "nlTrig", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRequirement_InvExpr(), this.getExpression(), null, "invExpr", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRequirement_NlInv(), ecorePackage.getEString(), "nlInv", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRequirement_FinalExpr(), this.getExpression(), null, "finalExpr", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRequirement_NlFinal(), ecorePackage.getEString(), "nlFinal", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRequirement_DelayExpr(), this.getExpression(), null, "delayExpr", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRequirement_NlDelay(), ecorePackage.getEString(), "nlDelay", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRequirement_ReacExpr(), this.getExpression(), null, "reacExpr", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRequirement_NlReac(), ecorePackage.getEString(), "nlReac", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRequirement_RelExpr(), this.getExpression(), null, "relExpr", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRequirement_NlRel(), ecorePackage.getEString(), "nlRel", null, 0, 1, Requirement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1085,20 +1257,17 @@ public class EdtlPackageImpl extends EPackageImpl implements EdtlPackage
 
     initEClass(primaryExpressionEClass, PrimaryExpression.class, "PrimaryExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPrimaryExpression_Const(), ecorePackage.getEString(), "const", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPrimaryExpression_Var(), this.getCrossVarAbbr(), null, "var", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExpression_Tau(), this.getTauExpression(), null, "tau", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPrimaryExpression_V(), this.getCrossVarAbbr(), null, "v", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_Macros(), this.getMacros(), null, "macros", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_Args(), this.getParamAssignmentElements(), null, "args", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPrimaryExpression_Tau(), this.getTauExpression(), null, "tau", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPrimaryExpression_NestExpr(), this.getExpression(), null, "nestExpr", null, 0, 1, PrimaryExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(paramAssignmentElementsEClass, ParamAssignmentElements.class, "ParamAssignmentElements", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParamAssignmentElements_Elements(), this.getVariable(), null, "elements", null, 0, -1, ParamAssignmentElements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParamAssignmentElements_Elements(), this.getCrossVarAbbr(), null, "elements", null, 0, -1, ParamAssignmentElements.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(crossVarAbbrEClass, CrossVarAbbr.class, "CrossVarAbbr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCrossVarAbbr_Name(), ecorePackage.getEString(), "name", null, 0, 1, CrossVarAbbr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(wEClass, w.class, "w", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getw_Elements(), this.getStatement(), null, "elements", null, 0, -1, w.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(equOperatorEEnum, EquOperator.class, "EquOperator");

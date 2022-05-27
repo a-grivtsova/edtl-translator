@@ -3,7 +3,7 @@
  */
 package su.nsk.iae.edtl.edtl;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,15 +15,25 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getName <em>Name</em>}</li>
- *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getAttribute <em>Attribute</em>}</li>
- *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getValue <em>Value</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getTrigExpr <em>Trig Expr</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getNlTrig <em>Nl Trig</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getInvExpr <em>Inv Expr</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getNlInv <em>Nl Inv</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getFinalExpr <em>Final Expr</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getNlFinal <em>Nl Final</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getDelayExpr <em>Delay Expr</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getNlDelay <em>Nl Delay</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getReacExpr <em>Reac Expr</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getNlReac <em>Nl Reac</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getRelExpr <em>Rel Expr</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Requirement#getNlRel <em>Nl Rel</em>}</li>
  * </ul>
  *
  * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement()
  * @model
  * @generated
  */
-public interface Requirement extends Statement
+public interface Requirement extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -48,27 +58,267 @@ public interface Requirement extends Statement
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Attribute</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Trig Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Attribute</em>' attribute list.
-   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_Attribute()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getAttribute();
-
-  /**
-   * Returns the value of the '<em><b>Value</b></em>' containment reference list.
-   * The list contents are of type {@link su.nsk.iae.edtl.edtl.Expression}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' containment reference list.
-   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_Value()
+   * @return the value of the '<em>Trig Expr</em>' containment reference.
+   * @see #setTrigExpr(Expression)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_TrigExpr()
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getValue();
+  Expression getTrigExpr();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getTrigExpr <em>Trig Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Trig Expr</em>' containment reference.
+   * @see #getTrigExpr()
+   * @generated
+   */
+  void setTrigExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Nl Trig</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nl Trig</em>' attribute.
+   * @see #setNlTrig(String)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_NlTrig()
+   * @model
+   * @generated
+   */
+  String getNlTrig();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getNlTrig <em>Nl Trig</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nl Trig</em>' attribute.
+   * @see #getNlTrig()
+   * @generated
+   */
+  void setNlTrig(String value);
+
+  /**
+   * Returns the value of the '<em><b>Inv Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Inv Expr</em>' containment reference.
+   * @see #setInvExpr(Expression)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_InvExpr()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getInvExpr();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getInvExpr <em>Inv Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Inv Expr</em>' containment reference.
+   * @see #getInvExpr()
+   * @generated
+   */
+  void setInvExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Nl Inv</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nl Inv</em>' attribute.
+   * @see #setNlInv(String)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_NlInv()
+   * @model
+   * @generated
+   */
+  String getNlInv();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getNlInv <em>Nl Inv</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nl Inv</em>' attribute.
+   * @see #getNlInv()
+   * @generated
+   */
+  void setNlInv(String value);
+
+  /**
+   * Returns the value of the '<em><b>Final Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Final Expr</em>' containment reference.
+   * @see #setFinalExpr(Expression)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_FinalExpr()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getFinalExpr();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getFinalExpr <em>Final Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Final Expr</em>' containment reference.
+   * @see #getFinalExpr()
+   * @generated
+   */
+  void setFinalExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Nl Final</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nl Final</em>' attribute.
+   * @see #setNlFinal(String)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_NlFinal()
+   * @model
+   * @generated
+   */
+  String getNlFinal();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getNlFinal <em>Nl Final</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nl Final</em>' attribute.
+   * @see #getNlFinal()
+   * @generated
+   */
+  void setNlFinal(String value);
+
+  /**
+   * Returns the value of the '<em><b>Delay Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Delay Expr</em>' containment reference.
+   * @see #setDelayExpr(Expression)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_DelayExpr()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getDelayExpr();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getDelayExpr <em>Delay Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Delay Expr</em>' containment reference.
+   * @see #getDelayExpr()
+   * @generated
+   */
+  void setDelayExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Nl Delay</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nl Delay</em>' attribute.
+   * @see #setNlDelay(String)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_NlDelay()
+   * @model
+   * @generated
+   */
+  String getNlDelay();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getNlDelay <em>Nl Delay</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nl Delay</em>' attribute.
+   * @see #getNlDelay()
+   * @generated
+   */
+  void setNlDelay(String value);
+
+  /**
+   * Returns the value of the '<em><b>Reac Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Reac Expr</em>' containment reference.
+   * @see #setReacExpr(Expression)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_ReacExpr()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getReacExpr();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getReacExpr <em>Reac Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Reac Expr</em>' containment reference.
+   * @see #getReacExpr()
+   * @generated
+   */
+  void setReacExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Nl Reac</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nl Reac</em>' attribute.
+   * @see #setNlReac(String)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_NlReac()
+   * @model
+   * @generated
+   */
+  String getNlReac();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getNlReac <em>Nl Reac</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nl Reac</em>' attribute.
+   * @see #getNlReac()
+   * @generated
+   */
+  void setNlReac(String value);
+
+  /**
+   * Returns the value of the '<em><b>Rel Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Rel Expr</em>' containment reference.
+   * @see #setRelExpr(Expression)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_RelExpr()
+   * @model containment="true"
+   * @generated
+   */
+  Expression getRelExpr();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getRelExpr <em>Rel Expr</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Rel Expr</em>' containment reference.
+   * @see #getRelExpr()
+   * @generated
+   */
+  void setRelExpr(Expression value);
+
+  /**
+   * Returns the value of the '<em><b>Nl Rel</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Nl Rel</em>' attribute.
+   * @see #setNlRel(String)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getRequirement_NlRel()
+   * @model
+   * @generated
+   */
+  String getNlRel();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.Requirement#getNlRel <em>Nl Rel</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Nl Rel</em>' attribute.
+   * @see #getNlRel()
+   * @generated
+   */
+  void setNlRel(String value);
 
 } // Requirement

@@ -67,7 +67,6 @@ public class EdtlFactoryImpl extends EFactoryImpl implements EdtlFactory
     switch (eClass.getClassifierID())
     {
       case EdtlPackage.MODEL: return createModel();
-      case EdtlPackage.STATEMENT: return createStatement();
       case EdtlPackage.DECL_VAR_INPUT: return createDeclVarInput();
       case EdtlPackage.DECL_VAR_OUTPUT: return createDeclVarOutput();
       case EdtlPackage.VAR_DECLARATION: return createVarDeclaration();
@@ -87,7 +86,6 @@ public class EdtlFactoryImpl extends EFactoryImpl implements EdtlFactory
       case EdtlPackage.PRIMARY_EXPRESSION: return createPrimaryExpression();
       case EdtlPackage.PARAM_ASSIGNMENT_ELEMENTS: return createParamAssignmentElements();
       case EdtlPackage.CROSS_VAR_ABBR: return createCrossVarAbbr();
-      case EdtlPackage.W: return createw();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -141,18 +139,6 @@ public class EdtlFactoryImpl extends EFactoryImpl implements EdtlFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Statement createStatement()
-  {
-    StatementImpl statement = new StatementImpl();
-    return statement;
   }
 
   /**
@@ -381,18 +367,6 @@ public class EdtlFactoryImpl extends EFactoryImpl implements EdtlFactory
   {
     CrossVarAbbrImpl crossVarAbbr = new CrossVarAbbrImpl();
     return crossVarAbbr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public w createw()
-  {
-    wImpl w = new wImpl();
-    return w;
   }
 
   /**

@@ -4,66 +4,150 @@
 package su.nsk.iae.edtl.generator
 
 import org.eclipse.emf.ecore.resource.Resource
+
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import su.nsk.iae.edtl.edtl.Requirement
-import su.nsk.iae.edtl.helpers.ExpressionGenerationHelper
+import su.nsk.iae.edtl.edtl.Model
+import su.nsk.iae.edtl.edtl.Expression
+import su.nsk.iae.edtl.edtl.Abbr
+import su.nsk.iae.edtl.edtl.PrimaryExpression
+import su.nsk.iae.edtl.edtl.XorExpression
+import java.util.HashMap
+import su.nsk.iae.edtl.edtl.Macros
+import su.nsk.iae.edtl.edtl.UnExpression
+import org.eclipse.core.runtime.Platform
 
-/**
- * Generates code from your model files on save.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
- */
-class EdtlGenerator extends AbstractGenerator {
-	ExpressionGenerationHelper translater
-	
-	/*override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		fsa.generateFile('reqs.txt', 'Reqs: ' + 
-			resource.allContents
-				.filter(Requirement)
-				.map[reqName]
-				.join(', '))
-	}*/
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context){
-		translater = new ExpressionGenerationHelper()
-		val reqNames = newArrayList()
-		val requirements = newArrayList()
-		resource.allContents.filter(Requirement).map[name].forEach [v | reqNames.add(v)]
-		resource.allContents.filter(Requirement).forEach [v | requirements.add(v)]
-		
-		val fileContent = '''
-		#include "../headers/EdtlFunctions.h"
-		
-		EdtlFunctions::EdtlFunctions(/* args */)
-		{}
-		
-		EdtlFunctions::~EdtlFunctions()
-		{}
-		
-		void EdtlFunctions::calculate(VerificationFSM *fsm, std::map <std::string, PortVariable*> *v, requirementId id) {
-			EdtlAttributes edtlAttributes;
-			
-			switch (id) { 
-				«FOR requirement: requirements»
-				case «requirement.name» : {
-					edtlAttributes.trigger = «translater.translateExpr(requirement.value.get(0))»;
-					edtlAttributes.invariant = «translater.translateExpr(requirement.value.get(1))»;
-					edtlAttributes.final = «translater.translateExpr(requirement.value.get(2))»;
-					edtlAttributes.delay = «translater.translateExpr(requirement.value.get(3))»; 
-					edtlAttributes.reaction = «translater.translateExpr(requirement.value.get(4))»;
-					edtlAttributes.release = «translater.translateExpr(requirement.value.get(5))»;
-					break;
-				}
-				«ENDFOR»
-				default: {
-					break;
-				}
+import static extension org.eclipse.emf.ecore.util.EcoreUtil.*
+import static extension org.eclipse.xtext.EcoreUtil2.*
+import java.util.List
+import java.util.ArrayList
+
+class EdtlGenerator extends AbstractGenerator implements IEdtlGenerator {
+
+	static final String EXTENSION_ID = "su.nsk.iae.edtl.edtl_extension"
+	static final List<IEdtlGenerator> generators = new ArrayList
+
+	static def void initGenerators() {
+		val configuration = Platform.extensionRegistry.getConfigurationElementsFor(EXTENSION_ID)
+		for (el : configuration) {
+			val obj = el.createExecutableExtension("class")
+			if (obj instanceof IEdtlGenerator) {
+				generators.add(obj)
 			}
-			fsm->set(edtlAttributes);
-		};
-		'''
+		}
+	}
 
-		fsa.generateFile('''EdtlFunctions.cpp''', fileContent)
+	override setModel(Model model){
+		model.reqs.stream.forEach([x | 
+			x.trigExpr = x.trigExpr.treeReplacement
+			x.invExpr = x.invExpr.treeReplacement
+			x.finalExpr = x.finalExpr.treeReplacement
+			x.delayExpr = x.delayExpr.treeReplacement
+			x.reacExpr = x.reacExpr.treeReplacement
+			x.relExpr = x.relExpr.treeReplacement
+		])
+	}
+	
+	def Expression treeReplacement(Expression expr){
+		return expr.treeReplacement_Traversal()
+	}
+	
+	def Expression treeReplacement_Traversal(Expression expr){
+		if (expr === null){
+			return expr
+		}
+		
+		var e = expr
+		e.left = expr.left.treeReplacement_Traversal()
+		e.right = expr.right.treeReplacement_Traversal() as XorExpression
+		
+		if (expr instanceof PrimaryExpression) {
+			val el = expr as PrimaryExpression
+			if (el.v instanceof Abbr){
+				val abbr = el.v
+				val model = expr.getContainerOfType(Model)
+				for (var i = 0; i < model.abbrs.size; i++){
+					if (model.abbrs.get(i).name.equals(abbr.name)){
+						return model.abbrs.get(i).expr.copy
+					}
+				}	
+			} else	if (el.macros instanceof Macros){
+				val macros = el.macros.copy as Macros
+				val args = macros.args.copy
+				var replace = new HashMap<String, Expression>
+				var vars = el.args.copy
+				for (var i = 0; i < args.vars.size; i++){
+					if (vars.elements.get(i) instanceof Abbr){
+						val abbr = vars.elements.get(i)
+						val model = expr.getContainerOfType(Model)
+						for (var j = 0; j < model.abbrs.size; j++){
+							if (model.abbrs.get(j).name.equals(abbr.name)){
+								replace.put(args.vars.get(i).name,
+									model.abbrs.get(j).expr.copy
+								)
+							}
+						}	
+					} else {
+						var prExpr = expr.copy
+						prExpr.macros = null
+						prExpr.args = null
+						prExpr.v = vars.elements.get(i)
+						replace.put(args.vars.get(i).name, prExpr)
+					}
+				}
+				return macros.expr.treeReplacement_MacrosTraversal(replace)
+			} else {
+				return el
+			}
+		}
+		return e
+	}
+	
+	def Expression treeReplacement_MacrosTraversal(Expression expr, HashMap<String, Expression> replace){
+		if (expr === null){
+			return expr.copy
+		}
+		
+		var e = expr.copy
+		
+		if (expr instanceof PrimaryExpression){
+			var exp = replace.get(expr.v.name)
+			if (exp !== null){
+				return exp.copy
+			} else {
+				return expr.copy
+			}
+		}
+		
+		if (expr instanceof UnExpression){
+			e.right = expr.right.treeReplacement_MacrosTraversal(replace) as XorExpression
+			return e.copy
+		}
+		
+		e.left = expr.left.treeReplacement_MacrosTraversal(replace)
+		e.right = expr.right.treeReplacement_MacrosTraversal(replace) as XorExpression
+		
+		return e.copy
+	}
+	
+	override void beforeGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		val model = resource.allContents.
+							toIterable.
+							filter(Model).
+							get(0)
+		setModel(model)
+	}
+	
+	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		val model = resource.allContents.toIterable.filter(Model).get(0)
+		if (generators.empty) {
+			initGenerators()
+		}
+		for (g : generators) {
+			g.model = model
+			g.beforeGenerate(resource, fsa, context)
+			g.doGenerate(resource, fsa, context)
+		}
 	}
 }

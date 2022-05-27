@@ -5,12 +5,16 @@ package su.nsk.iae.edtl.edtl.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -27,22 +31,43 @@ import su.nsk.iae.edtl.edtl.VarDeclaration;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link su.nsk.iae.edtl.edtl.impl.DeclVarOutputImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.impl.DeclVarOutputImpl#getOutputCounter <em>Output Counter</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.impl.DeclVarOutputImpl#getVarDecls <em>Var Decls</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DeclVarOutputImpl extends StatementImpl implements DeclVarOutput
+public class DeclVarOutputImpl extends MinimalEObjectImpl.Container implements DeclVarOutput
 {
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference list.
+   * The default value of the '{@link #getOutputCounter() <em>Output Counter</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getOutputCounter()
    * @generated
    * @ordered
    */
-  protected EList<VarDeclaration> value;
+  protected static final String OUTPUT_COUNTER_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOutputCounter() <em>Output Counter</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOutputCounter()
+   * @generated
+   * @ordered
+   */
+  protected String outputCounter = OUTPUT_COUNTER_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getVarDecls() <em>Var Decls</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVarDecls()
+   * @generated
+   * @ordered
+   */
+  protected EList<VarDeclaration> varDecls;
 
   /**
    * <!-- begin-user-doc -->
@@ -71,13 +96,38 @@ public class DeclVarOutputImpl extends StatementImpl implements DeclVarOutput
    * @generated
    */
   @Override
-  public EList<VarDeclaration> getValue()
+  public String getOutputCounter()
   {
-    if (value == null)
+    return outputCounter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOutputCounter(String newOutputCounter)
+  {
+    String oldOutputCounter = outputCounter;
+    outputCounter = newOutputCounter;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EdtlPackage.DECL_VAR_OUTPUT__OUTPUT_COUNTER, oldOutputCounter, outputCounter));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<VarDeclaration> getVarDecls()
+  {
+    if (varDecls == null)
     {
-      value = new EObjectContainmentEList<VarDeclaration>(VarDeclaration.class, this, EdtlPackage.DECL_VAR_OUTPUT__VALUE);
+      varDecls = new EObjectContainmentEList<VarDeclaration>(VarDeclaration.class, this, EdtlPackage.DECL_VAR_OUTPUT__VAR_DECLS);
     }
-    return value;
+    return varDecls;
   }
 
   /**
@@ -90,8 +140,8 @@ public class DeclVarOutputImpl extends StatementImpl implements DeclVarOutput
   {
     switch (featureID)
     {
-      case EdtlPackage.DECL_VAR_OUTPUT__VALUE:
-        return ((InternalEList<?>)getValue()).basicRemove(otherEnd, msgs);
+      case EdtlPackage.DECL_VAR_OUTPUT__VAR_DECLS:
+        return ((InternalEList<?>)getVarDecls()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,8 +156,10 @@ public class DeclVarOutputImpl extends StatementImpl implements DeclVarOutput
   {
     switch (featureID)
     {
-      case EdtlPackage.DECL_VAR_OUTPUT__VALUE:
-        return getValue();
+      case EdtlPackage.DECL_VAR_OUTPUT__OUTPUT_COUNTER:
+        return getOutputCounter();
+      case EdtlPackage.DECL_VAR_OUTPUT__VAR_DECLS:
+        return getVarDecls();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -123,9 +175,12 @@ public class DeclVarOutputImpl extends StatementImpl implements DeclVarOutput
   {
     switch (featureID)
     {
-      case EdtlPackage.DECL_VAR_OUTPUT__VALUE:
-        getValue().clear();
-        getValue().addAll((Collection<? extends VarDeclaration>)newValue);
+      case EdtlPackage.DECL_VAR_OUTPUT__OUTPUT_COUNTER:
+        setOutputCounter((String)newValue);
+        return;
+      case EdtlPackage.DECL_VAR_OUTPUT__VAR_DECLS:
+        getVarDecls().clear();
+        getVarDecls().addAll((Collection<? extends VarDeclaration>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +196,11 @@ public class DeclVarOutputImpl extends StatementImpl implements DeclVarOutput
   {
     switch (featureID)
     {
-      case EdtlPackage.DECL_VAR_OUTPUT__VALUE:
-        getValue().clear();
+      case EdtlPackage.DECL_VAR_OUTPUT__OUTPUT_COUNTER:
+        setOutputCounter(OUTPUT_COUNTER_EDEFAULT);
+        return;
+      case EdtlPackage.DECL_VAR_OUTPUT__VAR_DECLS:
+        getVarDecls().clear();
         return;
     }
     super.eUnset(featureID);
@@ -158,10 +216,29 @@ public class DeclVarOutputImpl extends StatementImpl implements DeclVarOutput
   {
     switch (featureID)
     {
-      case EdtlPackage.DECL_VAR_OUTPUT__VALUE:
-        return value != null && !value.isEmpty();
+      case EdtlPackage.DECL_VAR_OUTPUT__OUTPUT_COUNTER:
+        return OUTPUT_COUNTER_EDEFAULT == null ? outputCounter != null : !OUTPUT_COUNTER_EDEFAULT.equals(outputCounter);
+      case EdtlPackage.DECL_VAR_OUTPUT__VAR_DECLS:
+        return varDecls != null && !varDecls.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (outputCounter: ");
+    result.append(outputCounter);
+    result.append(')');
+    return result.toString();
   }
 
 } //DeclVarOutputImpl

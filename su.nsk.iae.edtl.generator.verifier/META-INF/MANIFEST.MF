@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Verifier
+Bundle-SymbolicName: su.nsk.iae.edtl.generator.verifier; singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Institute of Automation and Electrometry SB RAS
+Automatic-Module-Name: su.nsk.iae.edtl.generator.verifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro
+Export-Package: su.nsk.iae.edtl.generator.verifier.common
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ su.nsk.iae.edtl

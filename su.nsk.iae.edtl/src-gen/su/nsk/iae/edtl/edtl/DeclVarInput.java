@@ -5,6 +5,8 @@ package su.nsk.iae.edtl.edtl;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Decl Var Input</b></em>'.
@@ -14,25 +16,48 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link su.nsk.iae.edtl.edtl.DeclVarInput#getValue <em>Value</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.DeclVarInput#getInputCounter <em>Input Counter</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.DeclVarInput#getVarDecls <em>Var Decls</em>}</li>
  * </ul>
  *
  * @see su.nsk.iae.edtl.edtl.EdtlPackage#getDeclVarInput()
  * @model
  * @generated
  */
-public interface DeclVarInput extends Statement
+public interface DeclVarInput extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Value</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Input Counter</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Input Counter</em>' attribute.
+   * @see #setInputCounter(String)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getDeclVarInput_InputCounter()
+   * @model
+   * @generated
+   */
+  String getInputCounter();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.DeclVarInput#getInputCounter <em>Input Counter</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Input Counter</em>' attribute.
+   * @see #getInputCounter()
+   * @generated
+   */
+  void setInputCounter(String value);
+
+  /**
+   * Returns the value of the '<em><b>Var Decls</b></em>' containment reference list.
    * The list contents are of type {@link su.nsk.iae.edtl.edtl.VarDeclaration}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' containment reference list.
-   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getDeclVarInput_Value()
+   * @return the value of the '<em>Var Decls</em>' containment reference list.
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getDeclVarInput_VarDecls()
    * @model containment="true"
    * @generated
    */
-  EList<VarDeclaration> getValue();
+  EList<VarDeclaration> getVarDecls();
 
 } // DeclVarInput

@@ -24,7 +24,8 @@ import su.nsk.iae.edtl.edtl.Variable;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link su.nsk.iae.edtl.edtl.impl.VarDeclarationImpl#getVar <em>Var</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.impl.VarDeclarationImpl#getV <em>V</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.impl.VarDeclarationImpl#getLocation <em>Location</em>}</li>
  *   <li>{@link su.nsk.iae.edtl.edtl.impl.VarDeclarationImpl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -33,14 +34,34 @@ import su.nsk.iae.edtl.edtl.Variable;
 public class VarDeclarationImpl extends MinimalEObjectImpl.Container implements VarDeclaration
 {
   /**
-   * The cached value of the '{@link #getVar() <em>Var</em>}' containment reference.
+   * The cached value of the '{@link #getV() <em>V</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVar()
+   * @see #getV()
    * @generated
    * @ordered
    */
-  protected Variable var;
+  protected Variable v;
+
+  /**
+   * The default value of the '{@link #getLocation() <em>Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLocation()
+   * @generated
+   * @ordered
+   */
+  protected static final String LOCATION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLocation()
+   * @generated
+   * @ordered
+   */
+  protected String location = LOCATION_EDEFAULT;
 
   /**
    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
@@ -89,9 +110,9 @@ public class VarDeclarationImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public Variable getVar()
+  public Variable getV()
   {
-    return var;
+    return v;
   }
 
   /**
@@ -99,13 +120,13 @@ public class VarDeclarationImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetVar(Variable newVar, NotificationChain msgs)
+  public NotificationChain basicSetV(Variable newV, NotificationChain msgs)
   {
-    Variable oldVar = var;
-    var = newVar;
+    Variable oldV = v;
+    v = newV;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EdtlPackage.VAR_DECLARATION__VAR, oldVar, newVar);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EdtlPackage.VAR_DECLARATION__V, oldV, newV);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -117,20 +138,45 @@ public class VarDeclarationImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public void setVar(Variable newVar)
+  public void setV(Variable newV)
   {
-    if (newVar != var)
+    if (newV != v)
     {
       NotificationChain msgs = null;
-      if (var != null)
-        msgs = ((InternalEObject)var).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.VAR_DECLARATION__VAR, null, msgs);
-      if (newVar != null)
-        msgs = ((InternalEObject)newVar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.VAR_DECLARATION__VAR, null, msgs);
-      msgs = basicSetVar(newVar, msgs);
+      if (v != null)
+        msgs = ((InternalEObject)v).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.VAR_DECLARATION__V, null, msgs);
+      if (newV != null)
+        msgs = ((InternalEObject)newV).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.VAR_DECLARATION__V, null, msgs);
+      msgs = basicSetV(newV, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EdtlPackage.VAR_DECLARATION__VAR, newVar, newVar));
+      eNotify(new ENotificationImpl(this, Notification.SET, EdtlPackage.VAR_DECLARATION__V, newV, newV));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getLocation()
+  {
+    return location;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setLocation(String newLocation)
+  {
+    String oldLocation = location;
+    location = newLocation;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EdtlPackage.VAR_DECLARATION__LOCATION, oldLocation, location));
   }
 
   /**
@@ -168,8 +214,8 @@ public class VarDeclarationImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case EdtlPackage.VAR_DECLARATION__VAR:
-        return basicSetVar(null, msgs);
+      case EdtlPackage.VAR_DECLARATION__V:
+        return basicSetV(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -184,8 +230,10 @@ public class VarDeclarationImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case EdtlPackage.VAR_DECLARATION__VAR:
-        return getVar();
+      case EdtlPackage.VAR_DECLARATION__V:
+        return getV();
+      case EdtlPackage.VAR_DECLARATION__LOCATION:
+        return getLocation();
       case EdtlPackage.VAR_DECLARATION__TYPE:
         return getType();
     }
@@ -202,8 +250,11 @@ public class VarDeclarationImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case EdtlPackage.VAR_DECLARATION__VAR:
-        setVar((Variable)newValue);
+      case EdtlPackage.VAR_DECLARATION__V:
+        setV((Variable)newValue);
+        return;
+      case EdtlPackage.VAR_DECLARATION__LOCATION:
+        setLocation((String)newValue);
         return;
       case EdtlPackage.VAR_DECLARATION__TYPE:
         setType((String)newValue);
@@ -222,8 +273,11 @@ public class VarDeclarationImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case EdtlPackage.VAR_DECLARATION__VAR:
-        setVar((Variable)null);
+      case EdtlPackage.VAR_DECLARATION__V:
+        setV((Variable)null);
+        return;
+      case EdtlPackage.VAR_DECLARATION__LOCATION:
+        setLocation(LOCATION_EDEFAULT);
         return;
       case EdtlPackage.VAR_DECLARATION__TYPE:
         setType(TYPE_EDEFAULT);
@@ -242,8 +296,10 @@ public class VarDeclarationImpl extends MinimalEObjectImpl.Container implements 
   {
     switch (featureID)
     {
-      case EdtlPackage.VAR_DECLARATION__VAR:
-        return var != null;
+      case EdtlPackage.VAR_DECLARATION__V:
+        return v != null;
+      case EdtlPackage.VAR_DECLARATION__LOCATION:
+        return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
       case EdtlPackage.VAR_DECLARATION__TYPE:
         return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
     }
@@ -261,7 +317,9 @@ public class VarDeclarationImpl extends MinimalEObjectImpl.Container implements 
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (type: ");
+    result.append(" (location: ");
+    result.append(location);
+    result.append(", type: ");
     result.append(type);
     result.append(')');
     return result.toString();

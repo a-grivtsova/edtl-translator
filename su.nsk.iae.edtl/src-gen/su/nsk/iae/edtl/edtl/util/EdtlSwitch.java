@@ -80,18 +80,10 @@ public class EdtlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EdtlPackage.STATEMENT:
-      {
-        Statement statement = (Statement)theEObject;
-        T result = caseStatement(statement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case EdtlPackage.DECL_VAR_INPUT:
       {
         DeclVarInput declVarInput = (DeclVarInput)theEObject;
         T result = caseDeclVarInput(declVarInput);
-        if (result == null) result = caseStatement(declVarInput);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -99,7 +91,6 @@ public class EdtlSwitch<T> extends Switch<T>
       {
         DeclVarOutput declVarOutput = (DeclVarOutput)theEObject;
         T result = caseDeclVarOutput(declVarOutput);
-        if (result == null) result = caseStatement(declVarOutput);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -114,7 +105,6 @@ public class EdtlSwitch<T> extends Switch<T>
       {
         Abbr abbr = (Abbr)theEObject;
         T result = caseAbbr(abbr);
-        if (result == null) result = caseStatement(abbr);
         if (result == null) result = caseCrossVarAbbr(abbr);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -123,7 +113,6 @@ public class EdtlSwitch<T> extends Switch<T>
       {
         Macros macros = (Macros)theEObject;
         T result = caseMacros(macros);
-        if (result == null) result = caseStatement(macros);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -138,7 +127,6 @@ public class EdtlSwitch<T> extends Switch<T>
       {
         Requirement requirement = (Requirement)theEObject;
         T result = caseRequirement(requirement);
-        if (result == null) result = caseStatement(requirement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -248,14 +236,6 @@ public class EdtlSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EdtlPackage.W:
-      {
-        w w = (w)theEObject;
-        T result = casew(w);
-        if (result == null) result = caseModel(w);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       default: return defaultCase(theEObject);
     }
   }
@@ -272,22 +252,6 @@ public class EdtlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Statement</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Statement</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStatement(Statement object)
   {
     return null;
   }
@@ -592,22 +556,6 @@ public class EdtlSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCrossVarAbbr(CrossVarAbbr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>w</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>w</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casew(w object)
   {
     return null;
   }

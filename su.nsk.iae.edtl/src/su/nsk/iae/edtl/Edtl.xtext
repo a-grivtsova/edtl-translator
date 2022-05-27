@@ -1,38 +1,46 @@
-//grammar su.nsk.iae.edtl.Edtl with org.eclipse.xtext.common.Terminals
-grammar su.nsk.iae.edtl.Edtl hidden(WS, ML_COMMENT, SL_COMMENT)
+ grammar su.nsk.iae.edtl.Edtl hidden(WS, ML_COMMENT, SL_COMMENT)
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 generate edtl "http://www.nsk.su/iae/edtl/Edtl"
 
 Model:
-{w} (elements+=Statement)*;
+(	
+	declVarInput+=DeclVarInput |
+	declVarOutput+=DeclVarOutput |
+	abbrs+=Abbr | 
+	macroses+=Macros |
+	reqs+=Requirement
+)*;
 
-Statement:
-	DeclVarInput | DeclVarOutput | Abbr | Macros | Requirement;
-
-VariableTypeName returns ecore::EString:
+VariableType returns ecore::EString:
 	'BOOL' | 'INT';
 
 DeclVarInput:
 	{DeclVarInput}
-	'VAR_INPUT' (value+=VarDeclaration ';')* 'END_VAR';
+	'VAR_INPUT' 
+	('INPUT_PORTS_COUNTER' DECL_SYMB inputCounter=INTEGER ';')?
+	(varDecls+=VarDeclaration ';')*
+	 'END_VAR';
 
 DeclVarOutput:
 	{DeclVarOutput}
-	'VAR_OUTPUT' (value+=VarDeclaration ';')* 'END_VAR';
-
+	'VAR_OUTPUT' 
+	('OUTPUT_PORTS_COUNTER' DECL_SYMB outputCounter=INTEGER ';')?
+	(varDecls+=VarDeclaration ';')* 
+	'END_VAR';
+	
 VarDeclaration:
-	var=Variable ':' type=VariableTypeName;
+	v=Variable ('AT' location=DIRECT_VARIABLE)? ':' type=VariableType;
 
 Abbr:
 	'ABBR' name=ID
-		(value+=Expression)*
+		expr=Expression
 	'END_ABBR';
 
 Macros:
 	'MACROS' name=ID '(' (args=VarList)? ')'
-		(value+=Expression)*
+		expr=Expression
 	'END_MACROS';
 
 VarList:
@@ -41,25 +49,30 @@ VarList:
 Requirement:
 	'REQ' name=ID
 		(
-			attribute+=Attribute  DECL_SYMB  value+=Expression ';'
-		)*
+			'TRIGGER'  DECL_SYMB  trigExpr=Expression ';'
+			('NL:' '"'nlTrig=ID'"' ';')?
+		)?
+		(
+			'INVARIANT'  DECL_SYMB  invExpr=Expression ';'
+			('NL:' '"'nlInv=ID'"' ';')?
+		)?
+		(
+			'FINAL'  DECL_SYMB  finalExpr=Expression ';'
+			('NL:' '"'nlFinal=ID'"' ';')?
+		)?
+		(
+			'DELAY'  DECL_SYMB  delayExpr=Expression ';'
+			('NL:' '"'nlDelay=ID'"' ';')?
+		)?
+		(
+			'REACTION'  DECL_SYMB  reacExpr=Expression ';'
+			('NL:' '"'nlReac=ID'"' ';')?
+		)?
+		(
+			'RELEASE'  DECL_SYMB  relExpr=Expression ';'
+			('NL:' '"'nlRel=ID'"' ';')?
+		)?
 	'END_REQ';
- 	
-Attribute returns ecore::EString:
- 	'TRIGGER' | 'INV' | 'FINAL' | 'DELAY' | 'REACTION' | 'RELEASE'; 
-
-//Requirement:
-//	'REQ' '<'reqName=ID'>' 
-//		attributes=Attributes
-//	'END_REQ';
-// 	
-//Attributes returns ecore::EString:
-// 	'TRIGGER' DECL_SYMB trig=Expression
-// 	'INV' DECL_SYMB inv=Expression
-// 	'FINAL' DECL_SYMB fin=Expression
-// 	'DELAY' DECL_SYMB del=Expression
-// 	'REACTION' DECL_SYMB react=Expression
-// 	'RELEASE' DECL_SYMB rel=Expression; 
 
 terminal DECL_SYMB:
 	':=';
@@ -107,7 +120,7 @@ UnExpression:
 	PrimaryExpression | unOp=UnOperator right=PrimaryExpression;
 
 TauExpression:
-	'TAU' '(' (time=TimeLiteral) ')'; // | time=Abbr...
+	'TAU' '(' (time=TimeLiteral) ')';
 
 TimeLiteral:
 	 TIME_PREF_LITERAL interval=INTERVAL;
@@ -119,16 +132,22 @@ terminal INTERVAL returns ecore::EString:
 	(INTEGER 'd')? (INTEGER 'h')? (INTEGER 'm')? (INTEGER 's')? (INTEGER 'ms')?;
 
 PrimaryExpression:
-	const=INTEGER | var=[CrossVarAbbr] | macros=[Macros]'(' (args=ParamAssignmentElements)? ')'| tau=TauExpression | '(' nestExpr=Expression ')';
+	const=INTEGER | tau=TauExpression | v=[CrossVarAbbr] | macros=[Macros]'(' (args=ParamAssignmentElements)? ')' | '(' nestExpr=Expression ')';
 	
 ParamAssignmentElements:
-	elements+=[Variable] (',' elements+=[Variable])*;
-
-//ParamAssignment:
-//	variable=[Variable] assig=AssignmentType value=Expression;
+	elements+=[CrossVarAbbr] (',' elements+=[CrossVarAbbr])*;
 	
 CrossVarAbbr:
 	Variable | Abbr;
+
+terminal DIRECT_VARIABLE returns ecore::EString:
+	'%' DIRECT_TYPE_PREFIX DIRECT_SIZE_PREFIX OCTAL_DIGIT ('.' OCTAL_DIGIT)*;
+
+terminal fragment DIRECT_TYPE_PREFIX:
+	'I' | 'Q' | 'M';
+
+terminal fragment DIRECT_SIZE_PREFIX:
+	'X' | 'B' | 'W' | 'D' | 'L';
 
 terminal INTEGER returns ecore::EString:
 	DIGIT+;

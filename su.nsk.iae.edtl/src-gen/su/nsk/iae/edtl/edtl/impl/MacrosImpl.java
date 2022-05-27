@@ -3,20 +3,14 @@
  */
 package su.nsk.iae.edtl.edtl.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import su.nsk.iae.edtl.edtl.EdtlPackage;
 import su.nsk.iae.edtl.edtl.Expression;
@@ -33,12 +27,12 @@ import su.nsk.iae.edtl.edtl.VarList;
  * <ul>
  *   <li>{@link su.nsk.iae.edtl.edtl.impl.MacrosImpl#getName <em>Name</em>}</li>
  *   <li>{@link su.nsk.iae.edtl.edtl.impl.MacrosImpl#getArgs <em>Args</em>}</li>
- *   <li>{@link su.nsk.iae.edtl.edtl.impl.MacrosImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.impl.MacrosImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class MacrosImpl extends StatementImpl implements Macros
+public class MacrosImpl extends MinimalEObjectImpl.Container implements Macros
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -71,14 +65,14 @@ public class MacrosImpl extends StatementImpl implements Macros
   protected VarList args;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference list.
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getExpr()
    * @generated
    * @ordered
    */
-  protected EList<Expression> value;
+  protected Expression expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -182,13 +176,48 @@ public class MacrosImpl extends StatementImpl implements Macros
    * @generated
    */
   @Override
-  public EList<Expression> getValue()
+  public Expression getExpr()
   {
-    if (value == null)
+    return expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
+  {
+    Expression oldExpr = expr;
+    expr = newExpr;
+    if (eNotificationRequired())
     {
-      value = new EObjectContainmentEList<Expression>(Expression.class, this, EdtlPackage.MACROS__VALUE);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EdtlPackage.MACROS__EXPR, oldExpr, newExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return value;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setExpr(Expression newExpr)
+  {
+    if (newExpr != expr)
+    {
+      NotificationChain msgs = null;
+      if (expr != null)
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.MACROS__EXPR, null, msgs);
+      if (newExpr != null)
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.MACROS__EXPR, null, msgs);
+      msgs = basicSetExpr(newExpr, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EdtlPackage.MACROS__EXPR, newExpr, newExpr));
   }
 
   /**
@@ -203,8 +232,8 @@ public class MacrosImpl extends StatementImpl implements Macros
     {
       case EdtlPackage.MACROS__ARGS:
         return basicSetArgs(null, msgs);
-      case EdtlPackage.MACROS__VALUE:
-        return ((InternalEList<?>)getValue()).basicRemove(otherEnd, msgs);
+      case EdtlPackage.MACROS__EXPR:
+        return basicSetExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -223,8 +252,8 @@ public class MacrosImpl extends StatementImpl implements Macros
         return getName();
       case EdtlPackage.MACROS__ARGS:
         return getArgs();
-      case EdtlPackage.MACROS__VALUE:
-        return getValue();
+      case EdtlPackage.MACROS__EXPR:
+        return getExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -234,7 +263,6 @@ public class MacrosImpl extends StatementImpl implements Macros
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -246,9 +274,8 @@ public class MacrosImpl extends StatementImpl implements Macros
       case EdtlPackage.MACROS__ARGS:
         setArgs((VarList)newValue);
         return;
-      case EdtlPackage.MACROS__VALUE:
-        getValue().clear();
-        getValue().addAll((Collection<? extends Expression>)newValue);
+      case EdtlPackage.MACROS__EXPR:
+        setExpr((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -270,8 +297,8 @@ public class MacrosImpl extends StatementImpl implements Macros
       case EdtlPackage.MACROS__ARGS:
         setArgs((VarList)null);
         return;
-      case EdtlPackage.MACROS__VALUE:
-        getValue().clear();
+      case EdtlPackage.MACROS__EXPR:
+        setExpr((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -291,8 +318,8 @@ public class MacrosImpl extends StatementImpl implements Macros
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EdtlPackage.MACROS__ARGS:
         return args != null;
-      case EdtlPackage.MACROS__VALUE:
-        return value != null && !value.isEmpty();
+      case EdtlPackage.MACROS__EXPR:
+        return expr != null;
     }
     return super.eIsSet(featureID);
   }

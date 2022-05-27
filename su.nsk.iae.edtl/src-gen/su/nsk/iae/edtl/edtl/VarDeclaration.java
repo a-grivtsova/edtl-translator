@@ -14,7 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link su.nsk.iae.edtl.edtl.VarDeclaration#getVar <em>Var</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.VarDeclaration#getV <em>V</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.VarDeclaration#getLocation <em>Location</em>}</li>
  *   <li>{@link su.nsk.iae.edtl.edtl.VarDeclaration#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -25,26 +26,48 @@ import org.eclipse.emf.ecore.EObject;
 public interface VarDeclaration extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Var</b></em>' containment reference.
+   * Returns the value of the '<em><b>V</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var</em>' containment reference.
-   * @see #setVar(Variable)
-   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getVarDeclaration_Var()
+   * @return the value of the '<em>V</em>' containment reference.
+   * @see #setV(Variable)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getVarDeclaration_V()
    * @model containment="true"
    * @generated
    */
-  Variable getVar();
+  Variable getV();
 
   /**
-   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.VarDeclaration#getVar <em>Var</em>}' containment reference.
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.VarDeclaration#getV <em>V</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Var</em>' containment reference.
-   * @see #getVar()
+   * @param value the new value of the '<em>V</em>' containment reference.
+   * @see #getV()
    * @generated
    */
-  void setVar(Variable value);
+  void setV(Variable value);
+
+  /**
+   * Returns the value of the '<em><b>Location</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Location</em>' attribute.
+   * @see #setLocation(String)
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getVarDeclaration_Location()
+   * @model
+   * @generated
+   */
+  String getLocation();
+
+  /**
+   * Sets the value of the '{@link su.nsk.iae.edtl.edtl.VarDeclaration#getLocation <em>Location</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Location</em>' attribute.
+   * @see #getLocation()
+   * @generated
+   */
+  void setLocation(String value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' attribute.

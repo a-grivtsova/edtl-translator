@@ -23,6 +23,7 @@ import su.nsk.iae.edtl.edtl.EdtlPackage;
 import su.nsk.iae.edtl.edtl.EquExpression;
 import su.nsk.iae.edtl.edtl.Expression;
 import su.nsk.iae.edtl.edtl.Macros;
+import su.nsk.iae.edtl.edtl.Model;
 import su.nsk.iae.edtl.edtl.ParamAssignmentElements;
 import su.nsk.iae.edtl.edtl.PrimaryExpression;
 import su.nsk.iae.edtl.edtl.Requirement;
@@ -33,7 +34,6 @@ import su.nsk.iae.edtl.edtl.VarDeclaration;
 import su.nsk.iae.edtl.edtl.VarList;
 import su.nsk.iae.edtl.edtl.Variable;
 import su.nsk.iae.edtl.edtl.XorExpression;
-import su.nsk.iae.edtl.edtl.w;
 import su.nsk.iae.edtl.services.EdtlGrammarAccess;
 
 @SuppressWarnings("all")
@@ -74,6 +74,9 @@ public class EdtlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case EdtlPackage.MACROS:
 				sequence_Macros(context, (Macros) semanticObject); 
 				return; 
+			case EdtlPackage.MODEL:
+				sequence_Model(context, (Model) semanticObject); 
+				return; 
 			case EdtlPackage.PARAM_ASSIGNMENT_ELEMENTS:
 				sequence_ParamAssignmentElements(context, (ParamAssignmentElements) semanticObject); 
 				return; 
@@ -104,9 +107,6 @@ public class EdtlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 			case EdtlPackage.XOR_EXPRESSION:
 				sequence_XorExpression(context, (XorExpression) semanticObject); 
 				return; 
-			case EdtlPackage.W:
-				sequence_Model(context, (w) semanticObject); 
-				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
@@ -114,15 +114,23 @@ public class EdtlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Abbr
 	 *     Abbr returns Abbr
 	 *     CrossVarAbbr returns Abbr
 	 *
 	 * Constraint:
-	 *     (name=ID value+=Expression*)
+	 *     (name=ID expr=Expression)
 	 */
 	protected void sequence_Abbr(ISerializationContext context, Abbr semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, EdtlPackage.Literals.CROSS_VAR_ABBR__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EdtlPackage.Literals.CROSS_VAR_ABBR__NAME));
+			if (transientValues.isValueTransient(semanticObject, EdtlPackage.Literals.ABBR__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EdtlPackage.Literals.ABBR__EXPR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAbbrAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAbbrAccess().getExprExpressionParserRuleCall_2_0(), semanticObject.getExpr());
+		feeder.finish();
 	}
 	
 	
@@ -188,11 +196,10 @@ public class EdtlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Statement returns DeclVarInput
 	 *     DeclVarInput returns DeclVarInput
 	 *
 	 * Constraint:
-	 *     value+=VarDeclaration*
+	 *     (inputCounter=INTEGER? varDecls+=VarDeclaration*)
 	 */
 	protected void sequence_DeclVarInput(ISerializationContext context, DeclVarInput semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -201,11 +208,10 @@ public class EdtlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Statement returns DeclVarOutput
 	 *     DeclVarOutput returns DeclVarOutput
 	 *
 	 * Constraint:
-	 *     value+=VarDeclaration*
+	 *     (outputCounter=INTEGER? varDecls+=VarDeclaration*)
 	 */
 	protected void sequence_DeclVarOutput(ISerializationContext context, DeclVarOutput semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -272,11 +278,10 @@ public class EdtlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Macros
 	 *     Macros returns Macros
 	 *
 	 * Constraint:
-	 *     (name=ID args=VarList? value+=Expression*)
+	 *     (name=ID args=VarList? expr=Expression)
 	 */
 	protected void sequence_Macros(ISerializationContext context, Macros semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -285,12 +290,12 @@ public class EdtlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Model returns w
+	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     elements+=Statement*
+	 *     (declVarInput+=DeclVarInput | declVarOutput+=DeclVarOutput | abbrs+=Abbr | macroses+=Macros | reqs+=Requirement)+
 	 */
-	protected void sequence_Model(ISerializationContext context, w semanticObject) {
+	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -300,7 +305,7 @@ public class EdtlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     ParamAssignmentElements returns ParamAssignmentElements
 	 *
 	 * Constraint:
-	 *     (elements+=[Variable|ID] elements+=[Variable|ID]*)
+	 *     (elements+=[CrossVarAbbr|ID] elements+=[CrossVarAbbr|ID]*)
 	 */
 	protected void sequence_ParamAssignmentElements(ISerializationContext context, ParamAssignmentElements semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -323,7 +328,7 @@ public class EdtlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     PrimaryExpression returns PrimaryExpression
 	 *
 	 * Constraint:
-	 *     (const=INTEGER | var=[CrossVarAbbr|ID] | (macros=[Macros|ID] args=ParamAssignmentElements?) | tau=TauExpression | nestExpr=Expression)
+	 *     (const=INTEGER | tau=TauExpression | v=[CrossVarAbbr|ID] | (macros=[Macros|ID] args=ParamAssignmentElements?) | nestExpr=Expression)
 	 */
 	protected void sequence_PrimaryExpression(ISerializationContext context, PrimaryExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -332,11 +337,18 @@ public class EdtlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Statement returns Requirement
 	 *     Requirement returns Requirement
 	 *
 	 * Constraint:
-	 *     (name=ID (attribute+=Attribute value+=Expression)*)
+	 *     (
+	 *         name=ID 
+	 *         (trigExpr=Expression nlTrig=ID?)? 
+	 *         (invExpr=Expression nlInv=ID?)? 
+	 *         (finalExpr=Expression nlFinal=ID?)? 
+	 *         (delayExpr=Expression nlDelay=ID?)? 
+	 *         (reacExpr=Expression nlReac=ID?)? 
+	 *         (relExpr=Expression nlRel=ID?)?
+	 *     )
 	 */
 	protected void sequence_Requirement(ISerializationContext context, Requirement semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -415,19 +427,10 @@ public class EdtlSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     VarDeclaration returns VarDeclaration
 	 *
 	 * Constraint:
-	 *     (var=Variable type=VariableTypeName)
+	 *     (v=Variable location=DIRECT_VARIABLE? type=VariableType)
 	 */
 	protected void sequence_VarDeclaration(ISerializationContext context, VarDeclaration semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, EdtlPackage.Literals.VAR_DECLARATION__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EdtlPackage.Literals.VAR_DECLARATION__VAR));
-			if (transientValues.isValueTransient(semanticObject, EdtlPackage.Literals.VAR_DECLARATION__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EdtlPackage.Literals.VAR_DECLARATION__TYPE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVarDeclarationAccess().getVarVariableParserRuleCall_0_0(), semanticObject.getVar());
-		feeder.accept(grammarAccess.getVarDeclarationAccess().getTypeVariableTypeNameParserRuleCall_2_0(), semanticObject.getType());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

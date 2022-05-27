@@ -3,23 +3,15 @@
  */
 package su.nsk.iae.edtl.edtl.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 import su.nsk.iae.edtl.edtl.Abbr;
-import su.nsk.iae.edtl.edtl.CrossVarAbbr;
 import su.nsk.iae.edtl.edtl.EdtlPackage;
 import su.nsk.iae.edtl.edtl.Expression;
 
@@ -31,43 +23,22 @@ import su.nsk.iae.edtl.edtl.Expression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link su.nsk.iae.edtl.edtl.impl.AbbrImpl#getName <em>Name</em>}</li>
- *   <li>{@link su.nsk.iae.edtl.edtl.impl.AbbrImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.impl.AbbrImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AbbrImpl extends StatementImpl implements Abbr
+public class AbbrImpl extends CrossVarAbbrImpl implements Abbr
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getExpr()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected EList<Expression> value;
+  protected Expression expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,9 +67,9 @@ public class AbbrImpl extends StatementImpl implements Abbr
    * @generated
    */
   @Override
-  public String getName()
+  public Expression getExpr()
   {
-    return name;
+    return expr;
   }
 
   /**
@@ -106,13 +77,16 @@ public class AbbrImpl extends StatementImpl implements Abbr
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setName(String newName)
+  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
+    Expression oldExpr = expr;
+    expr = newExpr;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EdtlPackage.ABBR__NAME, oldName, name));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, EdtlPackage.ABBR__EXPR, oldExpr, newExpr);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -121,13 +95,20 @@ public class AbbrImpl extends StatementImpl implements Abbr
    * @generated
    */
   @Override
-  public EList<Expression> getValue()
+  public void setExpr(Expression newExpr)
   {
-    if (value == null)
+    if (newExpr != expr)
     {
-      value = new EObjectContainmentEList<Expression>(Expression.class, this, EdtlPackage.ABBR__VALUE);
+      NotificationChain msgs = null;
+      if (expr != null)
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.ABBR__EXPR, null, msgs);
+      if (newExpr != null)
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - EdtlPackage.ABBR__EXPR, null, msgs);
+      msgs = basicSetExpr(newExpr, msgs);
+      if (msgs != null) msgs.dispatch();
     }
-    return value;
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EdtlPackage.ABBR__EXPR, newExpr, newExpr));
   }
 
   /**
@@ -140,8 +121,8 @@ public class AbbrImpl extends StatementImpl implements Abbr
   {
     switch (featureID)
     {
-      case EdtlPackage.ABBR__VALUE:
-        return ((InternalEList<?>)getValue()).basicRemove(otherEnd, msgs);
+      case EdtlPackage.ABBR__EXPR:
+        return basicSetExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -156,10 +137,8 @@ public class AbbrImpl extends StatementImpl implements Abbr
   {
     switch (featureID)
     {
-      case EdtlPackage.ABBR__NAME:
-        return getName();
-      case EdtlPackage.ABBR__VALUE:
-        return getValue();
+      case EdtlPackage.ABBR__EXPR:
+        return getExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -169,18 +148,13 @@ public class AbbrImpl extends StatementImpl implements Abbr
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case EdtlPackage.ABBR__NAME:
-        setName((String)newValue);
-        return;
-      case EdtlPackage.ABBR__VALUE:
-        getValue().clear();
-        getValue().addAll((Collection<? extends Expression>)newValue);
+      case EdtlPackage.ABBR__EXPR:
+        setExpr((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -196,11 +170,8 @@ public class AbbrImpl extends StatementImpl implements Abbr
   {
     switch (featureID)
     {
-      case EdtlPackage.ABBR__NAME:
-        setName(NAME_EDEFAULT);
-        return;
-      case EdtlPackage.ABBR__VALUE:
-        getValue().clear();
+      case EdtlPackage.ABBR__EXPR:
+        setExpr((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -216,67 +187,10 @@ public class AbbrImpl extends StatementImpl implements Abbr
   {
     switch (featureID)
     {
-      case EdtlPackage.ABBR__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EdtlPackage.ABBR__VALUE:
-        return value != null && !value.isEmpty();
+      case EdtlPackage.ABBR__EXPR:
+        return expr != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == CrossVarAbbr.class)
-    {
-      switch (derivedFeatureID)
-      {
-        case EdtlPackage.ABBR__NAME: return EdtlPackage.CROSS_VAR_ABBR__NAME;
-        default: return -1;
-      }
-    }
-    return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass)
-  {
-    if (baseClass == CrossVarAbbr.class)
-    {
-      switch (baseFeatureID)
-      {
-        case EdtlPackage.CROSS_VAR_ABBR__NAME: return EdtlPackage.ABBR__NAME;
-        default: return -1;
-      }
-    }
-    return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //AbbrImpl

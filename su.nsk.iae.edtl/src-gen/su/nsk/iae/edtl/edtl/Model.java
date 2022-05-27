@@ -3,6 +3,8 @@
  */
 package su.nsk.iae.edtl.edtl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -10,6 +12,16 @@ import org.eclipse.emf.ecore.EObject;
  * A representation of the model object '<em><b>Model</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Model#getDeclVarInput <em>Decl Var Input</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Model#getDeclVarOutput <em>Decl Var Output</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Model#getAbbrs <em>Abbrs</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Model#getMacroses <em>Macroses</em>}</li>
+ *   <li>{@link su.nsk.iae.edtl.edtl.Model#getReqs <em>Reqs</em>}</li>
+ * </ul>
  *
  * @see su.nsk.iae.edtl.edtl.EdtlPackage#getModel()
  * @model
@@ -17,4 +29,64 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Decl Var Input</b></em>' containment reference list.
+   * The list contents are of type {@link su.nsk.iae.edtl.edtl.DeclVarInput}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Decl Var Input</em>' containment reference list.
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getModel_DeclVarInput()
+   * @model containment="true"
+   * @generated
+   */
+  EList<DeclVarInput> getDeclVarInput();
+
+  /**
+   * Returns the value of the '<em><b>Decl Var Output</b></em>' containment reference list.
+   * The list contents are of type {@link su.nsk.iae.edtl.edtl.DeclVarOutput}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Decl Var Output</em>' containment reference list.
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getModel_DeclVarOutput()
+   * @model containment="true"
+   * @generated
+   */
+  EList<DeclVarOutput> getDeclVarOutput();
+
+  /**
+   * Returns the value of the '<em><b>Abbrs</b></em>' containment reference list.
+   * The list contents are of type {@link su.nsk.iae.edtl.edtl.Abbr}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Abbrs</em>' containment reference list.
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getModel_Abbrs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Abbr> getAbbrs();
+
+  /**
+   * Returns the value of the '<em><b>Macroses</b></em>' containment reference list.
+   * The list contents are of type {@link su.nsk.iae.edtl.edtl.Macros}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Macroses</em>' containment reference list.
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getModel_Macroses()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Macros> getMacroses();
+
+  /**
+   * Returns the value of the '<em><b>Reqs</b></em>' containment reference list.
+   * The list contents are of type {@link su.nsk.iae.edtl.edtl.Requirement}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Reqs</em>' containment reference list.
+   * @see su.nsk.iae.edtl.edtl.EdtlPackage#getModel_Reqs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Requirement> getReqs();
+
 } // Model
